@@ -1,0 +1,58 @@
+{
+  "Main": {
+    "description": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, strong, em",
+        "label": "Description",
+        "placeholder": "Description"
+      }
+    },
+    "big_links": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "email": {
+            "type": "Text",
+            "config": {
+              "label": "Email",
+              "placeholder": "example@email.com"
+            }
+          },
+          "phone": {
+            "type": "Text",
+            "config": {
+              "label": "Phone",
+              "placeholder": "+1 111 111 1111"
+            }
+          }
+        },
+        "label": "Big links",
+        "repeat": false
+      }
+    },
+    "links": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "name": {
+            "type": "Text",
+            "config": {
+              "label": "Name",
+              "placeholder": "Link name"
+            }
+          },
+          "link": {
+            "type": "Link",
+            "config": {
+              "allowTargetBlank": true,
+              "label": "Link",
+              "placeholder": "Link"
+            }
+          }
+        },
+        "label": "Links"
+      }
+    }
+  }
+}

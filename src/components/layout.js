@@ -1,55 +1,75 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.com/docs/use-static-query/
- */
+import React from 'react';
+import PropTypes from 'prop-types';
+import { motion, AnimatePresence } from 'framer-motion';
+import { StaticQuery, graphql } from 'gatsby';
+import {
+  Head,
+  SmoothScroll,
+  Nav,
+  Footer,
+  //   Loader,
+  Cursor,
+} from '@components';
+import { GlobalStyle, Transition } from '@styles';
 
-import * as React from "react"
-import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
-
-import Header from "./header"
-import "./layout.css"
-
-const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
+const Layout = ({ children, location }) => {
+  const infoPage = location.pathname === '/information';
 
   return (
-    <>
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
-        <main>{children}</main>
-        <footer
-          style={{
-            marginTop: `2rem`,
-          }}
-        >
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
-        </footer>
-      </div>
-    </>
-  )
-}
+    <StaticQuery
+      query={graphql`
+        query LayoutQuery {
+          site {
+            siteMetadata {
+              title
+              siteUrl
+              description
+            }
+          }
+        }
+      `}
+      render={site => (
+        <>
+          <Head metadata={site.site.siteMetadata} />
+          <SmoothScroll callbacks={location} />
+          <Cursor location={location} />
+
+          <GlobalStyle />
+          <AnimatePresence>
+            <motion.main id="___container">
+              {infoPage && (
+                <Transition
+                  key={location.pathname}
+                  initial={{ height: 0 }}
+                  animate={{ height: ['0vh', '100vh', '100vh', '0vh'] }}
+                  transition={{ ease: 'easeInOut', duration: 0.8, times: [0, 0.7, 0.8, 1] }}
+                />
+              )}
+              <AnimatePresence>
+                <motion.div
+                  id="___sticky"
+                  key={location.pathname}
+                  initial={{ opacity: 0 }}
+                  animate={{
+                    opacity: 1,
+                    transition: { duration: 0.3, delay: 0.2, when: 'beforeChildren' },
+                  }}
+                  exit={{ opacity: 0, transition: { duration: 0.3 } }}>
+                  {!infoPage && <Nav location={location} />}
+                  {children}
+                  <Footer />
+                </motion.div>
+              </AnimatePresence>
+            </motion.main>
+          </AnimatePresence>
+        </>
+      )}
+    />
+  );
+};
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-}
+};
 
-export default Layout
+export default Layout;

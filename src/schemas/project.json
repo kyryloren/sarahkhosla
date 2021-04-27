@@ -1,0 +1,117 @@
+{
+  "Main": {
+    "uid": {
+      "type": "UID",
+      "config": {
+        "label": "URI",
+        "placeholder": "www.example.com/PROJECT-URI"
+      }
+    },
+    "title": {
+      "type": "Text",
+      "config": {
+        "label": "Title",
+        "placeholder": "Page title"
+      }
+    },
+    "thumbnail": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Thumbnail"
+      }
+    },
+    "cover": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Cover"
+      }
+    },
+    "body": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "labels": {
+          "information": [],
+          "full_image": [],
+          "half_image": []
+        },
+        "choices": {
+          "information": {
+            "type": "Slice",
+            "fieldset": "Information",
+            "description": "Information about the project",
+            "icon": "info_outline",
+            "display": "list",
+            "non-repeat": {
+              "description": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, strong, em, hyperlink, list-item",
+                  "label": "Description",
+                  "placeholder": "Description"
+                }
+              }
+            },
+            "repeat": {
+              "title": {
+                "type": "Text",
+                "config": {
+                  "label": "Title",
+                  "placeholder": "Tite line"
+                }
+              }
+            }
+          },
+          "full_image": {
+            "type": "Slice",
+            "fieldset": "Full Image",
+            "description": "Full page image case study",
+            "icon": "image",
+            "display": "list",
+            "non-repeat": {
+              "image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Image"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "half_image": {
+            "type": "Slice",
+            "fieldset": "Half Image",
+            "description": "Split images case study section",
+            "icon": "collections",
+            "display": "list",
+            "non-repeat": {
+              "left_image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Left Image"
+                }
+              },
+              "right_image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Right Image"
+                }
+              }
+            },
+            "repeat": {}
+          }
+        }
+      }
+    }
+  }
+}
