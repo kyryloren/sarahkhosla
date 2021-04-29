@@ -9,7 +9,7 @@ export const SectionContainer = styled.div`
 `;
 export const ContentWrapper = styled.div`
   display: flex;
-  padding: 10vh 0;
+  padding: 10vw 0;
   min-height: 100vh;
   justify-content: space-between;
   flex-direction: column;
@@ -61,7 +61,7 @@ export const ParaLine = styled.p`
 
   ${media.tablet`font-size: 3vw;`};
   ${media.thone`font-size: 4vw;`};
-  ${media.phone`font-size: 5vw;`};
+  ${media.phone`font-size: 6vw;`};
 `;
 export const StyledHamburgerBox = styled(Link)`
   display: flex;
@@ -114,6 +114,7 @@ export const BigText = styled.a`
   position: relative;
 
   ${media.thone`font-size: 7.5vw;`};
+  ${media.phone`font-size: 8vw;`};
 
   ${AnimLine};
 `;
@@ -125,6 +126,7 @@ const LinkStyles = css`
 
   ${media.tablet`font-size: 3vw;`};
   ${media.thone`font-size: 5vw;`};
+  ${media.phone`font-size: 7vw;`};
 `;
 export const SmallLink = styled.a`
   ${LinkStyles}

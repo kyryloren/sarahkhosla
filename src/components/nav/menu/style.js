@@ -5,10 +5,10 @@ import { Overflow, media } from '@styles';
 export const StyledContainer = styled.div`
   position: fixed;
   top: 0;
+  height: auto;
   bottom: 0;
   right: 0;
   width: 100%;
-  height: 100vh;
   outline: 0;
   display: none;
   z-index: 999;

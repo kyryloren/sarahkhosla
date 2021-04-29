@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { RichText } from 'prismic-reactjs';
 import { Elements } from 'prismic-richtext';
+import Div100vh from 'react-div-100vh';
 import { gsap } from 'gsap';
 import {
   SectionContainer,
@@ -53,6 +54,7 @@ const Information = ({ state, data }) => {
           opacity: 1,
           skewX: 0,
           skewY: 0,
+          transform: 'translate(0)',
           ease: 'power3.inOut',
           delay: 0.5,
           duration: 0.5,

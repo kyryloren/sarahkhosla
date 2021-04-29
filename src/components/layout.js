@@ -13,7 +13,7 @@ import {
 import { GlobalStyle, Transition } from '@styles';
 
 const Layout = ({ children, location }) => {
-  const infoPage = location.pathname === '/information';
+  const infoPage = location.pathname === '/information' || location.pathname === '/information/';
 
   return (
     <StaticQuery
@@ -57,7 +57,7 @@ const Layout = ({ children, location }) => {
                   exit={{ opacity: 0, transition: { duration: 0.3 } }}>
                   {!infoPage && <Nav location={location} />}
                   {children}
-                  <Footer />
+                  {!infoPage && <Footer />}
                 </motion.div>
               </AnimatePresence>
             </motion.main>

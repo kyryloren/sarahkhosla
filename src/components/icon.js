@@ -12,6 +12,16 @@ const Icon = ({ name }) => {
           />
         </svg>
       );
+    case 'left-arrow':
+      return (
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 39 38">
+          <path
+            stroke="currentColor"
+            stroke-width="2.04468"
+            d="M16.7988 33.2842C13.8339 30.424 5.68039 22.5585 1.97421 18.9832L15.6794 4.77619M2.43367 18.9484l34.75583-.3376"
+          />
+        </svg>
+      );
     case 'cross':
       return (
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">

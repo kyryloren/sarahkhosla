@@ -5,6 +5,9 @@ import { media } from '@styles';
 export const ProjectsSection = styled.div`
   position: relative;
   margin-top: 8vw;
+
+  ${media.tablet`margin-top: 10vw;`};
+  ${media.phablet`margin-top: 12vw;`};
 `;
 export const ProjectWrapper = styled(Link)`
   display: flex;
@@ -31,4 +34,6 @@ export const ProjectTitle = styled.p`
   color: var(--dark);
   margin: 0;
   padding-top: 2vw;
+
+  ${media.phablet`font-size: 4vw;`};
 `;

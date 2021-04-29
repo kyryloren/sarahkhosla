@@ -2,11 +2,11 @@ import React from 'react';
 import Project from '@views/project';
 import { graphql } from 'gatsby';
 
-const ProjectPage = ({ data }) => {
+const ProjectPage = ({ data, pageContext }) => {
   const doc = data.allPrismicProject.edges.slice(0, 1).pop();
   if (!doc) return null;
 
-  return <Project data={doc.node.data} />;
+  return <Project data={doc.node.data} pagination={pageContext.pagination[0]} />;
 };
 
 export default ProjectPage;

@@ -6,8 +6,9 @@ import { HeroSection, ImageContainer } from './style';
 import Information from './information';
 import Full from './full';
 import Half from './half';
+import Pagination from './pagination';
 
-const Project = ({ data }) => {
+const Project = ({ data, pagination }) => {
   return (
     <>
       <HeroSection>
@@ -34,6 +35,7 @@ const Project = ({ data }) => {
             return null;
         }
       })}
+      <Pagination data={pagination} />
     </>
   );
 };

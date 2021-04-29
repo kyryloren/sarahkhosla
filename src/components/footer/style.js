@@ -15,8 +15,8 @@ export const Row = styled.div`
 
   svg {
     color: var(--text);
-    width: 2vw;
-    height: 2vw;
+    width: 1vw;
+    height: 1vw;
     margin-left: 3vw;
 
     ${media.thone`

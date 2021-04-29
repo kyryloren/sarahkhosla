@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
+import Div100vh from 'react-div-100vh';
 import PropTypes from 'prop-types';
 import {
   StyledContainer,
@@ -57,43 +58,45 @@ const Menu = ({ menuOpen, location }) => {
       aria-hidden={!menuOpen}
       tabIndex={menuOpen ? 1 : -1}
       ref={el => (sectionRef = el)}>
-      <MenuWrapper>
-        <Container>
-          <NavLinks>
-            <NavList>
-              <StyledOverflow>
-                <NavListItem ref={el => (linksRef.current[0] = el)}>
-                  <NavLink
-                    to="/information"
-                    state={{ prev: location.pathname }}
-                    onClick={() => setClickedLink(true)}>
-                    Information
-                  </NavLink>
-                  <Icon name="arrow" />
-                </NavListItem>
-              </StyledOverflow>
-              <StyledOverflow>
-                <NavListItem ref={el => (linksRef.current[1] = el)}>
-                  <NavLink
-                    to="/work"
-                    state={{ prev: location.pathname }}
-                    onClick={() => setClickedLink(true)}>
-                    Work
-                  </NavLink>
-                  <Icon name="arrow" />
-                </NavListItem>
-              </StyledOverflow>
-            </NavList>
-          </NavLinks>
-        </Container>
-        <FooterWrapper>
-          <Overflow>
-            <NavListItem ref={el => (linksRef.current[2] = el)}>
-              <FooterText>&copy; {currentYear}</FooterText>
-            </NavListItem>
-          </Overflow>
-        </FooterWrapper>
-      </MenuWrapper>
+      <Div100vh>
+        <MenuWrapper>
+          <Container>
+            <NavLinks>
+              <NavList>
+                <StyledOverflow>
+                  <NavListItem ref={el => (linksRef.current[0] = el)}>
+                    <NavLink
+                      to="/information"
+                      state={{ prev: location.pathname }}
+                      onClick={() => setClickedLink(true)}>
+                      Information
+                    </NavLink>
+                    <Icon name="arrow" />
+                  </NavListItem>
+                </StyledOverflow>
+                <StyledOverflow>
+                  <NavListItem ref={el => (linksRef.current[1] = el)}>
+                    <NavLink
+                      to="/work"
+                      state={{ prev: location.pathname }}
+                      onClick={() => setClickedLink(true)}>
+                      Work
+                    </NavLink>
+                    <Icon name="arrow" />
+                  </NavListItem>
+                </StyledOverflow>
+              </NavList>
+            </NavLinks>
+          </Container>
+          <FooterWrapper>
+            <Overflow>
+              <NavListItem ref={el => (linksRef.current[2] = el)}>
+                <FooterText>&copy; {currentYear}</FooterText>
+              </NavListItem>
+            </Overflow>
+          </FooterWrapper>
+        </MenuWrapper>
+      </Div100vh>
     </StyledContainer>
   );
 };
