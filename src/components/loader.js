@@ -20,6 +20,9 @@ const Text = styled.div`
 const StyledOverflow = styled(Overflow)`
   display: inline-block;
 `;
+const Word = styled.div`
+  opacity: 0;
+`;
 
 const Loader = ({ setLoaded }) => {
   let tl = gsap.timeline();
@@ -28,12 +31,12 @@ const Loader = ({ setLoaded }) => {
   let nextLine = useRef([]);
 
   useEffect(() => {
-    tl.set(textRef.current[0], { yPercent: 100 })
-      .set(textRef.current[1], { yPercent: 100 })
-      .set(nextLine.current[2], { yPercent: 100 })
-      .set(nextLine.current[3], { yPercent: 100 })
-      .set(nextLine.current[4], { yPercent: 100 })
-      .set(nextLine.current[5], { yPercent: 100 });
+    tl.set(textRef.current[0], { yPercent: 100, opacity: 1 })
+      .set(textRef.current[1], { yPercent: 100, opacity: 1 })
+      .set(nextLine.current[2], { yPercent: 100, opacity: 1 })
+      .set(nextLine.current[3], { yPercent: 100, opacity: 1 })
+      .set(nextLine.current[4], { yPercent: 100, opacity: 1 })
+      .set(nextLine.current[5], { yPercent: 100, opacity: 1 });
 
     setTimeout(() => {
       tl.staggerTo(textRef.current, 1, { yPercent: 0, ease: 'power3.out' }, 0.2)
@@ -43,7 +46,7 @@ const Loader = ({ setLoaded }) => {
         .to(sectionContainer, {
           scaleY: 0,
           ease: 'power3.inOut',
-          duration: 1.2,
+          duration: 1,
           onComplete: () => setLoaded(true),
         });
     }, 400);
@@ -55,24 +58,24 @@ const Loader = ({ setLoaded }) => {
         <Container>
           <Text>
             <StyledOverflow>
-              <div ref={el => (textRef.current[0] = el)}>Hey&nbsp;</div>
+              <Word ref={el => (textRef.current[0] = el)}>Hey&nbsp;</Word>
             </StyledOverflow>
             <StyledOverflow>
-              <div ref={el => (textRef.current[1] = el)}>there.</div>
+              <Word ref={el => (textRef.current[1] = el)}>there.</Word>
             </StyledOverflow>
           </Text>
           <Text>
             <StyledOverflow>
-              <div ref={el => (nextLine.current[2] = el)}>Thanks&nbsp;</div>
+              <Word ref={el => (nextLine.current[2] = el)}>Thanks&nbsp;</Word>
             </StyledOverflow>
             <StyledOverflow>
-              <div ref={el => (nextLine.current[3] = el)}>for&nbsp;</div>
+              <Word ref={el => (nextLine.current[3] = el)}>for&nbsp;</Word>
             </StyledOverflow>
             <StyledOverflow>
-              <div ref={el => (nextLine.current[4] = el)}>stopping&nbsp;</div>
+              <Word ref={el => (nextLine.current[4] = el)}>stopping&nbsp;</Word>
             </StyledOverflow>
             <StyledOverflow>
-              <div ref={el => (nextLine.current[5] = el)}>by.</div>
+              <Word ref={el => (nextLine.current[5] = el)}>by.</Word>
             </StyledOverflow>
           </Text>
         </Container>
