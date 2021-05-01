@@ -13,7 +13,7 @@ export default HomePage;
 
 export const query = graphql`
   {
-    allPrismicProject {
+    allPrismicProject(sort: { fields: first_publication_date }) {
       nodes {
         data {
           title
