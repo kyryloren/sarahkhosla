@@ -9,6 +9,8 @@ const Layout = ({ children, location }) => {
   const infoPage = location.pathname === '/information' || location.pathname === '/information/';
   const [loaded, setLoaded] = useState(false);
 
+  console.log(location);
+
   return (
     <StaticQuery
       query={graphql`

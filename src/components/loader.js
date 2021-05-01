@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import Div100vh from 'react-div-100vh';
-import { Container, Overflow } from '@styles';
+import { Container, Overflow, media } from '@styles';
 import { gsap } from 'gsap';
 
 const LoadingWrapper = styled.div`
@@ -16,6 +16,9 @@ const LoadingWrapper = styled.div`
 const Text = styled.div`
   font-size: 2vw;
   position: absolute;
+
+  ${media.tablet`font-size: 4vw;`};
+  ${media.phablet`font-size: 18px;`};
 `;
 const StyledOverflow = styled(Overflow)`
   display: inline-block;

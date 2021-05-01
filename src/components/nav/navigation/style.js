@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'gatsby';
-import { media, Overflow } from '@styles';
+import { media, mixins, Overflow } from '@styles';
 
 export const PageHeader = styled.header`
   position: relative;
@@ -15,11 +15,8 @@ export const PageHeader = styled.header`
   `};
 `;
 export const NavWrapper = styled.nav`
+  ${mixins.flexBetween}
   width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
   padding: 5vw 0 2vw;
   color: var(--light);
 
@@ -27,18 +24,14 @@ export const NavWrapper = styled.nav`
   ${media.thone`color: var(--dark);`};
 `;
 export const NavLinks = styled.ul`
-  display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  align-items: center;
+  ${mixins.resetList}
+  ${mixins.flexCenter}
   ${media.thone`display: none;`};
 `;
 export const NavListItem = styled.li`
   position: relative;
-  display: flex;
-  align-items: center;
-  list-style: none;
+  ${mixins.resetList}
+  ${mixins.flexCenter}
 
   :not(:last-child) {
     margin: 0 3vw;

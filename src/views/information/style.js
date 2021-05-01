@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { media } from '@styles';
+import { media, mixins } from '@styles';
 import { Link } from 'gatsby';
 
 export const SectionContainer = styled.div`
@@ -85,27 +85,6 @@ export const StyledHamburgerBox = styled(Link)`
     `};
   }
 `;
-const AnimLine = css`
-  :before {
-    content: '';
-    display: block;
-    position: absolute;
-    bottom: 5%;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background-color: currentColor;
-    transition: transform 1.1s cubic-bezier(0.19, 1, 0.22, 1);
-  }
-  :before {
-    transition-delay: 0s;
-    transform: scaleX(0);
-    transform-origin: left;
-  }
-  :hover:before {
-    transform: scaleX(1);
-  }
-`;
 export const BigText = styled.a`
   font-size: 5vw;
   margin-top: 0;
@@ -116,7 +95,7 @@ export const BigText = styled.a`
   ${media.thone`font-size: 7.5vw;`};
   ${media.phone`font-size: 8vw;`};
 
-  ${AnimLine};
+  ${mixins.animLine}
 `;
 const LinkStyles = css`
   font-size: 2vw;
@@ -130,9 +109,9 @@ const LinkStyles = css`
 `;
 export const SmallLink = styled.a`
   ${LinkStyles}
-  ${AnimLine};
+  ${mixins.animLine}
 `;
 export const SmallLinkGatsby = styled(Link)`
   ${LinkStyles}
-  ${AnimLine};
+  ${mixins.animLine}
 `;
