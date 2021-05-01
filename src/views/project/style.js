@@ -9,3 +9,7 @@ export const ImageContainer = styled.div`
 export const ImageSection = styled.section`
   padding: 2vw 0;
 `;
+export const WrapperSection = styled.div`
+  transform: translateY(15%);
+  opacity: 0;
+`;

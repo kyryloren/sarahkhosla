@@ -20,7 +20,7 @@ export const ProjectWrapper = styled(Link)`
   }
 
   :not(:first-child) {
-    padding-top: 15vw;
+    margin-top: 15vw;
   }
 
   :first-child {

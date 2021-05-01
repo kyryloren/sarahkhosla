@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { PaginationSection, Row, Col, BigText, StyledImage } from './style';
 import { Icon } from '@components';
 import { Container } from '@styles';
@@ -16,11 +16,11 @@ const Pagination = ({ data }) => {
     <PaginationSection>
       <Container>
         <Row>
-          <Col
-            onMouseMove={mouseMove}
-            onHoverStart={() => setHoveringPrev(true)}
-            onHoverEnd={() => setHoveringPrev(false)}>
-            <Row>
+          <Col to={`/${data.previous.uid}`} id="prev">
+            <Row
+              onMouseMove={mouseMove}
+              onHoverStart={() => setHoveringPrev(true)}
+              onHoverEnd={() => setHoveringPrev(false)}>
               <Icon name="left-arrow" />
               <div>
                 <BigText>Previous</BigText>
@@ -28,12 +28,11 @@ const Pagination = ({ data }) => {
               </div>
             </Row>
           </Col>
-          <Col
-            next
-            onMouseMove={mouseMove}
-            onHoverStart={() => setHoveringNext(true)}
-            onHoverEnd={() => setHoveringNext(false)}>
-            <Row>
+          <Col next to={`/${data.next.uid}`} id="next">
+            <Row
+              onMouseMove={mouseMove}
+              onHoverStart={() => setHoveringNext(true)}
+              onHoverEnd={() => setHoveringNext(false)}>
               <div>
                 <BigText>Next</BigText>
                 <BigText>Project</BigText>
@@ -43,14 +42,18 @@ const Pagination = ({ data }) => {
           </Col>
         </Row>
       </Container>
-      <div
-        data-scroll
-        data-scroll-sticky
-        data-scroll-target="#___sticky"
-        style={{ top: `${position.x}px`, left: `${position.y}px`, position: 'absolute' }}>
+      <div style={{ top: `${position.y - 400}px`, left: `${position.x}px`, position: 'absolute' }}>
         <StyledImage
           src={data.previous.data.cover.url}
-          animate={hoveringPrev ? { width: '10vw' } : { width: 0 }}
+          alt={data.previous.data.cover.alt && data.previous.data.cover.alt}
+          animate={hoveringPrev ? { opacity: 1 } : { opacity: 0 }}
+        />
+      </div>
+      <div style={{ top: `${position.y - 400}px`, left: `${position.x}px`, position: 'absolute' }}>
+        <StyledImage
+          src={data.next.data.cover.url}
+          alt={data.next.data.cover.alt && data.next.data.cover.alt}
+          animate={hoveringNext ? { opacity: 1 } : { opacity: 0 }}
         />
       </div>
     </PaginationSection>

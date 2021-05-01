@@ -72,6 +72,8 @@ export const FooterLink = styled.a`
   ${AnimLine};
 
   margin-left: 0.75vw;
+  text-decoration: none;
+  color: inherit;
 `;
 export const InformationLink = styled(Link)`
   ${FooterText};

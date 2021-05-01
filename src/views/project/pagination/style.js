@@ -1,17 +1,20 @@
 import styled from 'styled-components';
+import { Link } from 'gatsby';
 import { motion } from 'framer-motion';
 
 export const PaginationSection = styled.section`
   position: relative;
   padding: 10vw 0 0;
 `;
-export const Row = styled.div`
+export const Row = styled(motion.div)`
   display: flex;
   justify-content: space-between;
   align-items: center;
 `;
-export const Col = styled(motion.a)`
+export const Col = styled(Link)`
   width: fit-content;
+  text-decoration: none;
+  color: var(--dark);
 
   svg {
     width: 3vw;
@@ -33,8 +36,7 @@ export const BigText = styled.div`
 `;
 export const StyledImage = styled(motion.img)`
   position: absolute;
-  height: 10vw;
+  width: 20vw;
   transform: translate(-50%, -50%);
   pointer-events: none;
-  z-index: 9999;
 `;

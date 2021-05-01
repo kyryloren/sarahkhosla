@@ -7,18 +7,18 @@ const isMobile = () => {
   return /Android|Mobi/i.test(ua);
 };
 
-const Cursor = ({ location }) => {
+const Cursor = ({ location, loaded }) => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [clicked, setClicked] = useState(false);
   const [linkHovered, setLinkHovered] = useState(false);
-  const [hidden, setHidden] = useState(false);
+  const [hidden, setHidden] = useState(true);
 
   useEffect(() => {
     setLinkHovered(false);
     addEventListeners();
     handleLinkHoverEvents();
     return () => removeEventListeners();
-  }, [location.pathname]);
+  }, [location.pathname, loaded]);
 
   const addEventListeners = () => {
     document.addEventListener('mousemove', onMouseMove);
@@ -58,8 +58,12 @@ const Cursor = ({ location }) => {
 
   const handleLinkHoverEvents = () => {
     document.querySelectorAll('a').forEach(el => {
-      el.addEventListener('mouseover', () => setLinkHovered(true));
-      el.addEventListener('mouseout', () => setLinkHovered(false));
+      el.addEventListener('mouseout', () =>
+        el.id === 'next' || el.id === 'prev' ? setHidden(false) : setLinkHovered(false),
+      );
+      el.addEventListener('mouseover', () =>
+        el.id === 'next' || el.id === 'prev' ? setHidden(true) : setLinkHovered(true),
+      );
     });
   };
 

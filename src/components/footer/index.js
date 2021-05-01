@@ -17,15 +17,27 @@ const Footer = () => {
             <Row>
               <Row>
                 <Icon name="arrow" />
-                <FooterLink>LinkedIn</FooterLink>
+                <FooterLink href="https://linkedin.com" target="_blank" rel="noopener” “noreferrer">
+                  LinkedIn
+                </FooterLink>
               </Row>
               <Row>
                 <Icon name="arrow" />
-                <FooterLink>Instagram</FooterLink>
+                <FooterLink
+                  href="https://instagram.com"
+                  target="_blank"
+                  rel="noopener” “noreferrer">
+                  Instagram
+                </FooterLink>
               </Row>
               <Row>
                 <Icon name="arrow" />
-                <FooterLink>Mail</FooterLink>
+                <FooterLink
+                  href="mailto:hello@sarahkhosla.com"
+                  target="_blank"
+                  rel="noopener” “noreferrer">
+                  Mail
+                </FooterLink>
               </Row>
             </Row>
           </Col>

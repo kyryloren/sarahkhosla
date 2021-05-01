@@ -1,14 +1,42 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
 import { Container } from '@styles';
 import { GatsbyImage } from 'gatsby-plugin-image';
-import { HeroSection, ImageContainer } from './style';
+import { HeroSection, ImageContainer, WrapperSection } from './style';
 
 import Information from './information';
 import Full from './full';
 import Half from './half';
 import Pagination from './pagination';
 
+gsap.registerPlugin(ScrollTrigger);
+
 const Project = ({ data, pagination }) => {
+  let sectionRef = useRef([]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      sectionRef.current.forEach(el => {
+        let tl = gsap.timeline().to(el, {
+          y: 0,
+          opacity: 1,
+          ease: 'power3.inOut',
+          duration: 0.5,
+        });
+
+        ScrollTrigger.create({
+          trigger: el,
+          animation: tl,
+          scroller: '#___container',
+          start: 'top center+=600',
+        });
+        ScrollTrigger.addEventListener('refresh', () => window.scroll.update());
+        ScrollTrigger.refresh();
+      });
+    }, 500);
+  }, []);
+
   return (
     <>
       <HeroSection>
@@ -26,11 +54,23 @@ const Project = ({ data, pagination }) => {
 
         switch (typename) {
           case 'PrismicProjectBodyInformation':
-            return <Information data={slice} index={index} />;
+            return (
+              <WrapperSection ref={el => (sectionRef.current[index] = el)}>
+                <Information data={slice} index={index} />
+              </WrapperSection>
+            );
           case 'PrismicProjectBodyFullImage':
-            return <Full data={slice} />;
+            return (
+              <WrapperSection ref={el => (sectionRef.current[index] = el)}>
+                <Full data={slice} />
+              </WrapperSection>
+            );
           case 'PrismicProjectBodyHalfImage':
-            return <Half data={slice} />;
+            return (
+              <WrapperSection ref={el => (sectionRef.current[index] = el)}>
+                <Half data={slice} />
+              </WrapperSection>
+            );
           default:
             return null;
         }

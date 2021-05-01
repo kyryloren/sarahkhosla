@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { RichText } from 'prismic-reactjs';
 import { Elements } from 'prismic-richtext';
-import Div100vh from 'react-div-100vh';
 import { gsap } from 'gsap';
 import {
   SectionContainer,
@@ -96,7 +95,7 @@ const Information = ({ state, data }) => {
                 <ContactRows>
                   <Overflow>
                     <div style={{ opacity: 0 }} ref={el => (linesRef.current[5] = el)}>
-                      <BigText href={`mailto@${data.big_links[0].email}`}>
+                      <BigText href={`mailto:${data.big_links[0].email}`}>
                         {data.big_links[0].email}
                       </BigText>
                     </div>

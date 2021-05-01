@@ -5,3 +5,4 @@ export { Nav } from './nav';
 export { default as SmoothScroll } from './smoothScroll';
 export { default as Cursor } from './cursor';
 export { default as Footer } from './footer';
+export { default as Loader } from './loader';
