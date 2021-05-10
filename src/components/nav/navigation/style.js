@@ -106,7 +106,7 @@ export const StyledNavLink = styled(StyledLink)`
 export const Line = styled.div`
   background-color: var(--light);
   position: relative;
-  height: 2px;
+  height: 0.1vw;
   width: 0;
 
   ${media.thone`background-color: var(--dark);`};
