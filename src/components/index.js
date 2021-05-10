@@ -3,6 +3,7 @@ export { default as Layout } from './layout';
 export { default as Icon } from './icon';
 export { Nav } from './nav';
 export { default as SmoothScroll } from './smoothScroll';
+export { CursorContext, CursorProvider } from './CursorContext';
 export { default as Cursor } from './cursor';
 export { default as Footer } from './footer';
 export { default as Loader } from './loader';

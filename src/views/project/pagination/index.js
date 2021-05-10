@@ -1,16 +1,43 @@
-import React, { useState } from 'react';
-import { PaginationSection, Row, Col, BigText, StyledImage } from './style';
-import { Icon } from '@components';
+/* eslint react-hooks/exhaustive-deps: 0 */
+import React, { useState, useMemo } from 'react';
+import { PaginationSection, Row, Col, BigText } from './style';
+import { Icon, CursorContext } from '@components';
 import { Container } from '@styles';
 
 const Pagination = ({ data }) => {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const { setImage } = React.useContext(CursorContext);
   const [hoveringPrev, setHoveringPrev] = useState(false);
   const [hoveringNext, setHoveringNext] = useState(false);
 
-  const mouseMove = e => {
-    setPosition({ x: e.clientX, y: e.clientY });
-  };
+  useMemo(() => {
+    if (hoveringPrev)
+      setImage({
+        hovering: true,
+        url: data.previous.data.cover.url,
+        alt: data.previous.data.cover.alt && data.previous.data.cover.alt,
+      });
+    else
+      setImage({
+        hovering: false,
+        url: data.previous.data.cover.url,
+        alt: data.previous.data.cover.alt && data.previous.data.cover.alt,
+      });
+  }, [hoveringPrev]);
+
+  useMemo(() => {
+    if (hoveringNext)
+      setImage({
+        hovering: true,
+        url: data.next.data.cover.url,
+        alt: data.next.data.cover.alt && data.next.data.cover.alt,
+      });
+    else
+      setImage({
+        hovering: false,
+        url: data.next.data.cover.url,
+        alt: data.next.data.cover.alt && data.next.data.cover.alt,
+      });
+  }, [hoveringNext]);
 
   return (
     <PaginationSection>
@@ -18,7 +45,6 @@ const Pagination = ({ data }) => {
         <Row>
           <Col to={`/${data.previous.uid}`} id="prev">
             <Row
-              onMouseMove={mouseMove}
               onHoverStart={() => setHoveringPrev(true)}
               onHoverEnd={() => setHoveringPrev(false)}>
               <Icon name="left-arrow" />
@@ -30,7 +56,6 @@ const Pagination = ({ data }) => {
           </Col>
           <Col next to={`/${data.next.uid}`} id="next">
             <Row
-              onMouseMove={mouseMove}
               onHoverStart={() => setHoveringNext(true)}
               onHoverEnd={() => setHoveringNext(false)}>
               <div>
@@ -42,20 +67,6 @@ const Pagination = ({ data }) => {
           </Col>
         </Row>
       </Container>
-      <div style={{ top: `${position.y - 400}px`, left: `${position.x}px`, position: 'absolute' }}>
-        <StyledImage
-          src={data.previous.data.cover.url}
-          alt={data.previous.data.cover.alt && data.previous.data.cover.alt}
-          animate={hoveringPrev ? { opacity: 1 } : { opacity: 0 }}
-        />
-      </div>
-      <div style={{ top: `${position.y - 400}px`, left: `${position.x}px`, position: 'absolute' }}>
-        <StyledImage
-          src={data.next.data.cover.url}
-          alt={data.next.data.cover.alt && data.next.data.cover.alt}
-          animate={hoveringNext ? { opacity: 1 } : { opacity: 0 }}
-        />
-      </div>
     </PaginationSection>
   );
 };

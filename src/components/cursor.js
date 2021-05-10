@@ -1,5 +1,7 @@
 /* eslint react-hooks/exhaustive-deps: 0 */
 import React, { useState, useEffect } from 'react';
+import { CursorContext } from './CursorContext';
+import styled from 'styled-components';
 import classNames from 'classnames';
 
 const isMobile = () => {
@@ -7,7 +9,17 @@ const isMobile = () => {
   return /Android|Mobi/i.test(ua);
 };
 
+const StyledImage = styled.img`
+  position: absolute;
+  width: 20vw;
+  transition: opacity 0.3s ease;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 9999;
+`;
+
 const Cursor = ({ location, loaded }) => {
+  const { image } = React.useContext(CursorContext);
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [clicked, setClicked] = useState(false);
   const [linkHovered, setLinkHovered] = useState(false);
@@ -76,7 +88,18 @@ const Cursor = ({ location, loaded }) => {
   if (typeof navigator !== 'undefined' && isMobile()) return null;
 
   return (
-    <div className={cursorClasses} style={{ top: `${position.y}px`, left: `${position.x}px` }} />
+    <>
+      <div className={cursorClasses} style={{ top: `${position.y}px`, left: `${position.x}px` }} />
+      <StyledImage
+        src={image && image.url}
+        alt={image && image.alt}
+        style={{
+          top: `${position.y}px`,
+          left: `${position.x}px`,
+          opacity: image && image.hovering ? 1 : 0,
+        }}
+      />
+    </>
   );
 };
 

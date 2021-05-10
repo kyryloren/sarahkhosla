@@ -34,9 +34,3 @@ export const BigText = styled.div`
   margin: 0;
   font-family: var(--font-family-serif);
 `;
-export const StyledImage = styled(motion.img)`
-  position: absolute;
-  width: 20vw;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-`;
