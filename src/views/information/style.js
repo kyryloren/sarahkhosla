@@ -9,7 +9,7 @@ export const SectionContainer = styled.div`
 `;
 export const ContentWrapper = styled.div`
   display: flex;
-  padding: 10vw 0;
+  padding: 5vh 0;
   min-height: 100vh;
   justify-content: space-between;
   flex-direction: column;
@@ -55,7 +55,7 @@ export const ContactRows = styled.div`
   }
 `;
 export const ParaLine = styled.p`
-  font-size: 2vw;
+  font-size: 1.4vw;
   margin-top: 0;
   line-height: 140%;
 
