@@ -10,7 +10,9 @@ import {
   NavListItem,
   StyledLink,
   StyledNavLink,
+  StyledHamburger,
   StyledHamburgerBox,
+  StyledHamburgerInner,
   Line,
 } from './style';
 import { StyledTitle, Letter, StyledOverflow } from './style';
@@ -79,7 +81,7 @@ const Nav = ({ location }) => {
     if (lineRef.current) {
       tl.to(lineRef.current, { width: '100%', duration: 1.5, ease: 'power3.inOut', delay: 0.5 })
         .staggerFrom(link.current, 0.8, { yPercent: 100, ease: 'power3.inOut' }, 0.2)
-        .fromTo(menuButton, { scale: 0 }, { scale: 1 }, '-=1')
+        // .fromTo(menuButton, { scale: 0 }, { scale: 1 }, '-=1')
         .staggerFrom(letters.current, 1.2, { yPercent: 100, ease: 'power3.inOut' }, 0.05, '-=1.5');
 
       setTimeout(() => {
@@ -209,11 +211,16 @@ const Nav = ({ location }) => {
                 </Overflow>
               </NavListItem>
             </NavLinks>
-            <StyledHamburgerBox
+            <StyledHamburger onClick={toggleMenu}>
+              <StyledHamburgerBox>
+                <StyledHamburgerInner menuOpen={menuOpen} />
+              </StyledHamburgerBox>
+            </StyledHamburger>
+            {/* <StyledHamburgerBox
               menuOpen={menuOpen}
               onClick={toggleMenu}
               ref={el => (menuButton = el)}
-            />
+            /> */}
             {clicked && <Menu menuOpen={menuOpen} toggleMenu={toggleMenu} location={location} />}
           </NavWrapper>
           {location.pathname === '/' && <Line ref={el => (lineRef.current = el)} />}
