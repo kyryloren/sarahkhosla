@@ -82,6 +82,7 @@ const Nav = ({ location }) => {
       tl.to(lineRef.current, { width: '100%', duration: 1.5, ease: 'power3.inOut', delay: 0.5 })
         .staggerFrom(link.current, 0.8, { yPercent: 100, ease: 'power3.inOut' }, 0.2)
         // .fromTo(menuButton, { scale: 0 }, { scale: 1 }, '-=1')
+        .fromTo(menuButton, { opacity: 0 }, { opacity: 1 }, '-=1')
         .staggerFrom(letters.current, 1.2, { yPercent: 100, ease: 'power3.inOut' }, 0.05, '-=1.5');
 
       setTimeout(() => {
@@ -211,7 +212,7 @@ const Nav = ({ location }) => {
                 </Overflow>
               </NavListItem>
             </NavLinks>
-            <StyledHamburger onClick={toggleMenu}>
+            <StyledHamburger onClick={toggleMenu} ref={el => (menuButton = el)}>
               <StyledHamburgerBox>
                 <StyledHamburgerInner menuOpen={menuOpen} />
               </StyledHamburgerBox>
