@@ -15,7 +15,7 @@ export const Row = styled.div`
     color: var(--text);
     width: 1vw;
     height: 1vw;
-    margin-left: 3vw;
+    margin-left: 2.5vw;
 
     ${media.thone`
       width: 3vw;
@@ -34,7 +34,7 @@ export const MobileCol = styled.div`
   ${media.thone`display: unset;`};
 `;
 export const FooterText = css`
-  font-size: 2vw;
+  font-size: 1.4vw;
   margin: 0;
   text-decoration: none;
   position: relative;
