@@ -30,10 +30,11 @@ export const ProjectWrapper = styled(Link)`
   }
 `;
 export const ProjectTitle = styled.p`
-  font-size: 2vw;
+  font-size: 1.4vw;
   color: var(--dark);
   margin: 0;
-  padding-top: 2vw;
+  padding-top: 1vw;
+  ${props => props.ml && `margin-left: 15.1vw;`};
 
   ${media.phablet`font-size: 4vw;`};
 `;
