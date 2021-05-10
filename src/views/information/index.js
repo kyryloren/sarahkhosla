@@ -1,4 +1,5 @@
-import React, { useEffect, useRef } from 'react';
+/* eslint react-hooks/exhaustive-deps: 0 */
+import React, { useEffect, useRef, useMemo, useContext, useState } from 'react';
 import { RichText } from 'prismic-reactjs';
 import { Elements } from 'prismic-richtext';
 import { gsap } from 'gsap';
@@ -15,7 +16,7 @@ import {
   SmallLinkGatsby,
   TextWrapper,
 } from './style';
-import { Icon } from '@components';
+import { Icon, CursorContext } from '@components';
 import { Container, Overflow } from '@styles';
 
 const propsWithUniqueKey = function (props, key) {
@@ -31,6 +32,36 @@ var htmlSerializer = function (type, element, content, children, key) {
     default:
       return null;
   }
+};
+
+const PhotoLink = ({ data }) => {
+  const { setImage } = useContext(CursorContext);
+  const [hovering, setHovering] = useState(false);
+
+  useMemo(() => {
+    if (hovering)
+      setImage({
+        hovering: true,
+        url: data.headshot.url,
+        alt: data.headshot.alt && data.headshot.alt,
+      });
+    else
+      setImage({
+        hovering: false,
+        url: data.headshot.url,
+        alt: data.headshot.alt && data.headshot.alt,
+      });
+  }, [hovering]);
+
+  return (
+    <SmallLink
+      id="cursor_hide"
+      onMouseOver={() => setHovering(true)}
+      onMouseOut={() => setHovering(false)}
+      style={{ cursor: 'default' }}>
+      Photo of me
+    </SmallLink>
+  );
 };
 
 const Information = ({ state, data }) => {
@@ -112,7 +143,13 @@ const Information = ({ state, data }) => {
             </Row>
             <Row col>
               <Overflow>
-                <LinkWrapper style={{ opacity: 0 }} ref={el => (linesRef.current[7] = el)}>
+                <LinkWrapper photo style={{ opacity: 0 }} ref={el => (linesRef.current[7] = el)}>
+                  <PhotoLink data={data} />
+                  <Icon name="arrow" />
+                </LinkWrapper>
+              </Overflow>
+              <Overflow>
+                <LinkWrapper style={{ opacity: 0 }} ref={el => (linesRef.current[8] = el)}>
                   <SmallLinkGatsby to="/">Work</SmallLinkGatsby>
                   <Icon name="arrow" />
                 </LinkWrapper>
@@ -122,7 +159,7 @@ const Information = ({ state, data }) => {
                   <Overflow key={index}>
                     <LinkWrapper
                       style={{ opacity: 0 }}
-                      ref={el => (linesRef.current[7 + (index + 1)] = el)}>
+                      ref={el => (linesRef.current[8 + (index + 1)] = el)}>
                       <SmallLink
                         href={data.link.url && data.link.url}
                         target={data.link.target}

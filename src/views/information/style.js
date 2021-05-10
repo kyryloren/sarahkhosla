@@ -19,7 +19,10 @@ export const LinkWrapper = styled.div`
   align-items: center;
   justify-content: flex-end;
 
-  ${media.thone`flex-direction: row-reverse;`};
+  ${media.thone`
+    flex-direction: row-reverse;
+    ${props => props.photo && `display: none;`};
+  `};
   ${media.tablet`margin-top: 2vw;`};
 
   svg {

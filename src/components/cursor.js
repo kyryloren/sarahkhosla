@@ -71,10 +71,10 @@ const Cursor = ({ location, loaded }) => {
   const handleLinkHoverEvents = () => {
     document.querySelectorAll('a').forEach(el => {
       el.addEventListener('mouseout', () =>
-        el.id === 'next' || el.id === 'prev' ? setHidden(false) : setLinkHovered(false),
+        el.id === 'cursor_hide' ? setHidden(false) : setLinkHovered(false),
       );
       el.addEventListener('mouseover', () =>
-        el.id === 'next' || el.id === 'prev' ? setHidden(true) : setLinkHovered(true),
+        el.id === 'cursor_hide' ? setHidden(true) : setLinkHovered(true),
       );
     });
   };

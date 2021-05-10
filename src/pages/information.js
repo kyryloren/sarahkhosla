@@ -18,6 +18,10 @@ export const query = graphql`
       edges {
         node {
           data {
+            headshot {
+              url
+              alt
+            }
             description {
               raw
             }

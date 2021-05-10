@@ -1,11 +1,11 @@
 /* eslint react-hooks/exhaustive-deps: 0 */
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useContext } from 'react';
 import { PaginationSection, Row, Col, BigText } from './style';
 import { Icon, CursorContext } from '@components';
 import { Container } from '@styles';
 
 const Pagination = ({ data }) => {
-  const { setImage } = React.useContext(CursorContext);
+  const { setImage } = useContext(CursorContext);
   const [hoveringPrev, setHoveringPrev] = useState(false);
   const [hoveringNext, setHoveringNext] = useState(false);
 
@@ -43,7 +43,7 @@ const Pagination = ({ data }) => {
     <PaginationSection>
       <Container>
         <Row>
-          <Col to={`/${data.previous.uid}`} id="prev">
+          <Col to={`/${data.previous.uid}`} id="cursor_hide">
             <Row
               onHoverStart={() => setHoveringPrev(true)}
               onHoverEnd={() => setHoveringPrev(false)}>
@@ -54,7 +54,7 @@ const Pagination = ({ data }) => {
               </div>
             </Row>
           </Col>
-          <Col next to={`/${data.next.uid}`} id="next">
+          <Col next to={`/${data.next.uid}`} id="cursor_hide">
             <Row
               onHoverStart={() => setHoveringNext(true)}
               onHoverEnd={() => setHoveringNext(false)}>
