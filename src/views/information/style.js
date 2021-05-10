@@ -45,8 +45,8 @@ export const Row = styled.div`
   flex-direction: ${props => (props.col ? 'column' : 'row')};
 
   ${media.thone`
-    ${props => props.bottom && `flex-direction: column-reverse;`};
-    ${props => props.contact && `padding-top: 15vw;`};
+    ${props => props.bottom && `flex-direction: column;`};
+    ${props => props.contact && `padding-bottom: 10vw;`};
   `};
 `;
 export const ContactRows = styled.div`
@@ -61,7 +61,7 @@ export const ParaLine = styled.p`
 
   ${media.tablet`font-size: 3vw;`};
   ${media.thone`font-size: 4vw;`};
-  ${media.phone`font-size: 6vw;`};
+  ${media.phone`font-size: 5vw;`};
 `;
 export const StyledHamburgerBox = styled(Link)`
   display: flex;
