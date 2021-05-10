@@ -8,6 +8,14 @@
         "placeholder": "Description"
       }
     },
+    "headshot": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Headshot"
+      }
+    },
     "big_links": {
       "type": "Group",
       "config": {
@@ -52,6 +60,29 @@
           }
         },
         "label": "Links"
+      }
+    },
+    "footer": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "text": {
+            "type": "Text",
+            "config": {
+              "label": "Text",
+              "placeholder": "Link text"
+            }
+          },
+          "link": {
+            "type": "Link",
+            "config": {
+              "allowTargetBlank": true,
+              "label": "Link",
+              "placeholder": "Footer link"
+            }
+          }
+        },
+        "label": "Footer"
       }
     }
   }
