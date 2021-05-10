@@ -66,7 +66,7 @@ const Information = ({ data, index }) => {
         textRef.current,
         1,
         {
-          yPercent: -100,
+          yPercent: 100,
           ease: 'power3.inOut',
           delay: 0.2,
         },
@@ -75,7 +75,7 @@ const Information = ({ data, index }) => {
         descriptionRef,
         {
           opacity: 0,
-          yPercent: -10,
+          yPercent: 10,
           ease: 'power3.inOut',
           duration: 1,
         },

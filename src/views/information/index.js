@@ -45,14 +45,10 @@ const Information = ({ state, data }) => {
         textRef,
         {
           opacity: 0,
-          skewX: 20,
-          skewY: 10,
-          yPercent: -10,
+          yPercent: 10,
         },
         {
           opacity: 1,
-          skewX: 0,
-          skewY: 0,
           transform: 'translate(0)',
           ease: 'power3.inOut',
           delay: 0.5,
