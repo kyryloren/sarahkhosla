@@ -25,8 +25,6 @@ const Menu = ({ menuOpen, location }) => {
 
   useEffect(() => {
     if (menuOpen) {
-      document.body.style.overflow = 'hidden';
-
       tl.fromTo(
         sectionRef,
         { yPercent: -100 },
@@ -45,12 +43,16 @@ const Menu = ({ menuOpen, location }) => {
           yPercent: -100,
           ease: 'power3.inOut',
           duration: 0.8,
-          onComplete: () => (document.body.style.overflow = 'unset'),
         },
         '-=0.4',
       );
     }
   }, [menuOpen, tl, clickedLink]);
+
+  useEffect(() => {
+    if (menuOpen) document.body.style.overflow = 'hidden';
+    else document.body.style.overflow = 'unset';
+  }, [location, menuOpen]);
 
   return (
     <StyledContainer
