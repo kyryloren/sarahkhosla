@@ -1,4 +1,6 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
+
 import Project from '@views/project';
 import { graphql } from 'gatsby';
 
@@ -6,7 +8,12 @@ const ProjectPage = ({ data, pageContext }) => {
   const doc = data.allPrismicProject.edges.slice(0, 1).pop();
   if (!doc) return null;
 
-  return <Project data={doc.node.data} pagination={pageContext.pagination[0]} />;
+  return (
+    <>
+      <Helmet title={doc.node.data.title} />
+      <Project data={doc.node.data} pagination={pageContext.pagination[0]} />
+    </>
+  );
 };
 
 export default ProjectPage;

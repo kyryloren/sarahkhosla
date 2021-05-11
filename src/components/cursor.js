@@ -26,7 +26,6 @@ const Cursor = ({ location, loaded }) => {
   const [hidden, setHidden] = useState(false);
 
   useEffect(() => {
-    console.log("UPDATING")
     setLinkHovered(false);
 
     setTimeout(() => {

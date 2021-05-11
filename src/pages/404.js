@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
 import { Link } from 'gatsby';
 import { Icon } from '@components';
@@ -67,22 +68,26 @@ const StyledLink = styled(Link)`
 
 const PageNotFound = () => {
   return (
-    <PageWrapper>
-      <Container>
-        <ContentWrapper>
-          <Title>404</Title>
-          <CaptionWrapper>
-            <Caption>
-              Either the internet is broken or we couldn't find the file that you were looking for.
-            </Caption>
-            <LinkWrapper>
-              <Icon name="arrow" />
-              <StyledLink to="/">Go home</StyledLink>
-            </LinkWrapper>
-          </CaptionWrapper>
-        </ContentWrapper>
-      </Container>
-    </PageWrapper>
+    <>
+      <Helmet title="Page not found" />
+      <PageWrapper>
+        <Container>
+          <ContentWrapper>
+            <Title>404</Title>
+            <CaptionWrapper>
+              <Caption>
+                Either the internet is broken or we couldn't find the file that you were looking
+                for.
+              </Caption>
+              <LinkWrapper>
+                <Icon name="arrow" />
+                <StyledLink to="/">Go home</StyledLink>
+              </LinkWrapper>
+            </CaptionWrapper>
+          </ContentWrapper>
+        </Container>
+      </PageWrapper>
+    </>
   );
 };
 
