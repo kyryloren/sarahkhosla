@@ -106,10 +106,13 @@ export const StyledNavLink = styled(StyledLink)`
 export const Line = styled.div`
   background-color: var(--light);
   position: relative;
-  height: 0.1vw;
+  height: 2px;
   width: 0;
 
-  ${media.thone`background-color: var(--dark);`};
+  ${media.thone`
+    background-color: var(--dark);
+    height: 1px;
+  `};
 `;
 export const StyledHamburger = styled.div`
   position: relative;
