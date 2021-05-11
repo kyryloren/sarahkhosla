@@ -26,10 +26,14 @@ const Cursor = ({ location, loaded }) => {
   const [hidden, setHidden] = useState(false);
 
   useEffect(() => {
+    console.log("UPDATING")
     setLinkHovered(false);
-    addEventListeners();
-    handleLinkHoverEvents();
-    return () => removeEventListeners();
+
+    setTimeout(() => {
+      addEventListeners();
+      handleLinkHoverEvents();
+      return () => removeEventListeners();
+    }, 1000);
   }, [location.pathname, loaded]);
 
   const addEventListeners = () => {

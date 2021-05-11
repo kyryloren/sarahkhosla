@@ -48,7 +48,7 @@ const Layout = ({ children, location }) => {
                         initial={{ height: 0 }}
                         animate={{ height: ['0vh', '100vh', '100vh', '0vh'] }}
                         exit={{ height: '100vh' }}
-                        transition={{ ease: 'easeInOut', duration: 0.8, times: [0, 0.7, 0.8, 1] }}
+                        transition={{ ease: 'easeInOut', duration: 1.5, times: [0, 0.5, 0.8, 1] }}
                       />
                     )}
                     <AnimatePresence exitBeforeEnter>
@@ -58,9 +58,9 @@ const Layout = ({ children, location }) => {
                         initial={{ opacity: 0 }}
                         animate={{
                           opacity: 1,
-                          transition: { duration: 0.3, delay: 0.2, when: 'beforeChildren' },
+                          transition: { duration: 0.5, when: 'beforeChildren' },
                         }}
-                        exit={{ opacity: 0, transition: { duration: 0.3 } }}>
+                        exit={{ opacity: 0, transition: { duration: 0.5 } }}>
                         {!infoPage && <Nav location={location} />}
                         {children}
                         {!infoPage && <Footer />}
