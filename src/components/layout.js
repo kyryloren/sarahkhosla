@@ -39,7 +39,7 @@ const Layout = ({ children, location }) => {
             <GlobalStyle />
 
             <AnimatePresence>
-              <motion.main id="___container">
+              <main id="___container">
                 {loaded ? (
                   <>
                     {infoPage && (
@@ -47,10 +47,11 @@ const Layout = ({ children, location }) => {
                         key={location.pathname}
                         initial={{ height: 0 }}
                         animate={{ height: ['0vh', '100vh', '100vh', '0vh'] }}
+                        exit={{ height: '100vh' }}
                         transition={{ ease: 'easeInOut', duration: 0.8, times: [0, 0.7, 0.8, 1] }}
                       />
                     )}
-                    <AnimatePresence>
+                    <AnimatePresence exitBeforeEnter>
                       <motion.div
                         id="___sticky"
                         key={location.pathname}
@@ -69,7 +70,7 @@ const Layout = ({ children, location }) => {
                 ) : (
                   <Loader setLoaded={setLoaded} />
                 )}
-              </motion.main>
+              </main>
             </AnimatePresence>
           </CursorProvider>
         </>
