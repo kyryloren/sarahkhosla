@@ -11,7 +11,6 @@ export const ContentWrapper = styled.div`
   display: flex;
   padding: 5vh 0;
   height: 100%;
-  overflow: hidden;
   justify-content: space-between;
   flex-direction: column;
 `;
