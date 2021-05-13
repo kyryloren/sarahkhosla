@@ -37,6 +37,7 @@ export const NormalText = styled.p`
   font-weight: 300;
   margin-top: 0;
   line-height: 140%;
+  overflow: hidden;
 
   ${props => props.label && `margin-bottom: 0;`};
   ${media.thone`
