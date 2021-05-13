@@ -8,6 +8,7 @@ import { HeroSection, ImageContainer, WrapperSection } from './style';
 import Information from './information';
 import Full from './full';
 import Half from './half';
+import Video from './video';
 import Pagination from './pagination';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -69,6 +70,12 @@ const Project = ({ data, pagination }) => {
             return (
               <WrapperSection ref={el => (sectionRef.current[index] = el)}>
                 <Half data={slice} />
+              </WrapperSection>
+            );
+          case 'PrismicProjectBodyVideo':
+            return (
+              <WrapperSection ref={el => (sectionRef.current[index] = el)}>
+                <Video data={slice} />
               </WrapperSection>
             );
           default:

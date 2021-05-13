@@ -7,7 +7,7 @@ import { GlobalStyle, Transition } from '@styles';
 
 const Layout = ({ children, location }) => {
   const infoPage = location.pathname === '/information' || location.pathname === '/information/';
-  const [loaded, setLoaded] = useState(false);
+  const [loaded, setLoaded] = useState(true);
 
   // We reset the overflow style on the body
   // because we are sitting it to none when the menu opens

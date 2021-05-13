@@ -80,6 +80,14 @@ export const query = graphql`
                   }
                 }
               }
+              __typename
+              ... on PrismicProjectBodyVideo {
+                primary {
+                  video {
+                    url
+                  }
+                }
+              }
             }
           }
         }

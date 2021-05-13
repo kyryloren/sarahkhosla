@@ -37,7 +37,8 @@
         "labels": {
           "information": [],
           "full_image": [],
-          "half_image": []
+          "half_image": [],
+          "video": []
         },
         "choices": {
           "information": {
@@ -69,7 +70,7 @@
           "full_image": {
             "type": "Slice",
             "fieldset": "Full Image",
-            "description": "Full page image case study",
+            "description": "Full width image",
             "icon": "image",
             "display": "list",
             "non-repeat": {
@@ -87,7 +88,7 @@
           "half_image": {
             "type": "Slice",
             "fieldset": "Half Image",
-            "description": "Split images case study section",
+            "description": "Split width image",
             "icon": "collections",
             "display": "list",
             "non-repeat": {
@@ -105,6 +106,24 @@
                   "constraint": {},
                   "thumbnails": [],
                   "label": "Right Image"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "video": {
+            "type": "Slice",
+            "fieldset": "Video",
+            "description": "Full width video",
+            "icon": "video_library",
+            "display": "list",
+            "non-repeat": {
+              "video": {
+                "type": "Link",
+                "config": {
+                  "select": "media",
+                  "label": "Video",
+                  "placeholder": "Video"
                 }
               }
             },
