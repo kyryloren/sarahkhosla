@@ -10,7 +10,8 @@ export const SectionContainer = styled.div`
 export const ContentWrapper = styled.div`
   display: flex;
   padding: 5vh 0;
-  min-height: 100vh;
+  height: 100%;
+  overflow: hidden;
   justify-content: space-between;
   flex-direction: column;
 `;
@@ -49,7 +50,7 @@ export const Row = styled.div`
 
   ${media.thone`
     ${props => props.bottom && `flex-direction: column;`};
-    ${props => props.contact && `padding-bottom: 10vw;`};
+    ${props => props.contact && `padding-bottom: 4vw;`};
   `};
 `;
 export const ContactRows = styled.div`
