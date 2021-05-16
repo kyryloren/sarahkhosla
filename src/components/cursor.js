@@ -27,12 +27,13 @@ const Cursor = ({ location, loaded }) => {
 
   useEffect(() => {
     setLinkHovered(false);
+    addEventListeners();
 
     setTimeout(() => {
-      addEventListeners();
       handleLinkHoverEvents();
-      return () => removeEventListeners();
     }, 1000);
+
+    return () => removeEventListeners();
   }, [location.pathname, loaded]);
 
   const addEventListeners = () => {

@@ -15,7 +15,7 @@ html.has-scroll-dragging {
 }
 
 /* Specifying the scroll container manually */
-.has-scroll-smooth #___gatsby,
+.has-scroll-smooth #___container,
 .has-scroll-smooth [data-scroll-container] {
   min-height: 100vh;
 }
