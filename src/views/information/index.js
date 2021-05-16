@@ -2,6 +2,7 @@
 import React, { useEffect, useRef, useMemo, useContext, useState } from 'react';
 import { RichText } from 'prismic-reactjs';
 import { Elements } from 'prismic-richtext';
+import { isMobile } from 'react-device-detect';
 import { useWindowSize } from '@hooks';
 import { gsap } from 'gsap';
 import Div100vh from 'react-div-100vh';
@@ -69,7 +70,7 @@ const PhotoLink = ({ data }) => {
 const MobileWrapper = ({ children }) => {
   const { height } = useWindowSize();
 
-  if (height < 618) return children;
+  if (height < 618 && isMobile) return children;
   return <Div100vh>{children}</Div100vh>;
 };
 
