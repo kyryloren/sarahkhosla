@@ -16,7 +16,7 @@ export const Col = styled.div`
   width: 50%;
 
   ${media.thone`
-    width: 85%;
+    width: 90%;
     
     :first-child {
       padding-bottom: 4vw;
@@ -24,7 +24,7 @@ export const Col = styled.div`
   `};
 `;
 export const Title = styled.h1`
-  font-size: 4vw;
+  font-size: 3vw;
   margin: 0;
   font-weight: normal;
 
@@ -33,17 +33,27 @@ export const Title = styled.h1`
   `};
 `;
 export const NormalText = styled.p`
-  font-size: 2vw;
+  font-size: 1.4vw;
   font-weight: 300;
   margin-top: 0;
   line-height: 140%;
   overflow: hidden;
 
-  ${props => props.label && `margin-bottom: 0;`};
+  ${props =>
+    props.label &&
+    `
+    margin-bottom: 0;
+    font-size: 1vw;
+  `};
   ${media.thone`
-    font-size: 5vw;
+    font-size: 4vw;
 
-    ${props => props.label && `padding-left: 2vw;`};
+    ${props =>
+      props.label &&
+      `
+      padding-left: 2vw;
+      font-size: 3.5vw;
+    `};
   `};
 `;
 export const TextWrapper = styled.div`
@@ -66,12 +76,12 @@ export const UnorderedList = styled.ul`
   list-style: none;
   padding: 0;
   margin: 0;
-  font-size: 2vw;
+  font-size: 1.4vw;
   font-weight: 300;
   margin-top: 0;
   line-height: 140%;
 
-  ${media.thone`font-size: 5vw;`};
+  ${media.thone`font-size: 4vw;`};
 `;
 export const ButtonWrapper = styled.a`
   display: flex;
@@ -86,7 +96,7 @@ export const ButtonWrapper = styled.a`
 export const StyledHamburgerBox = styled.div`
   display: flex;
   position: relative;
-  padding: 1.3vw;
+  padding: 1vw;
   border-radius: 50%;
   align-items: center;
   justify-content: center;
@@ -100,12 +110,12 @@ export const StyledHamburgerBox = styled.div`
 
   svg {
     color: var(--dark);
-    width: 1.5vw;
-    height: 1.5vw;
+    width: 0.8vw;
+    height: 0.8vw;
 
     ${media.thone`
-      width: 4vw;
-      height: 4vw;
+      width: 2.7vw;
+      height: 2.7vw;
     `};
   }
 `;

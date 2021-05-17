@@ -42,7 +42,7 @@ export const LinkWrapper = styled.div`
   }
 `;
 export const TextWrapper = styled.div`
-  max-width: 50%;
+  max-width: 60%;
 
   ${media.thone`max-width: 80%;`};
 `;
@@ -59,7 +59,7 @@ export const Row = styled.div`
 
   ${media.thone`
     ${props => props.bottom && `flex-direction: column;`};
-    ${props => props.contact && `padding: 16vw 0 4vw;`};
+    ${props => props.contact && `padding: 8vw 0 4vw;`};
   `};
 `;
 export const ContactRows = styled.div`
@@ -111,7 +111,7 @@ export const BigText = styled.a`
   ${mixins.animLine}
 `;
 const LinkStyles = css`
-  font-size: 2vw;
+  font-size: 1.4vw;
   color: var(--light);
   text-decoration: none;
   position: relative;

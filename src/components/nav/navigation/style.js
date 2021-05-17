@@ -62,7 +62,7 @@ export const StyledLink = styled(Link)`
     font-size: 2vw;
   `};
 
-  ${media.tablet`font-size: ${props => (props.logo ? '26px' : '20px')};`};
+  ${media.tablet`font-size: ${props => (props.logo ? '26px' : '4vw')};`};
 `;
 export const StyledNavLink = styled(StyledLink)`
   ${props =>
