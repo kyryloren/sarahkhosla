@@ -7,4 +7,3 @@ export { CursorContext, CursorProvider } from './CursorContext';
 export { default as Cursor } from './cursor';
 export { default as Footer } from './footer';
 export { default as Loader } from './loader';
-export { default as TextScramble } from './textScramble';

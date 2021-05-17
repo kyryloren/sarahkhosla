@@ -217,11 +217,6 @@ const Nav = ({ location }) => {
                 <StyledHamburgerInner menuOpen={menuOpen} />
               </StyledHamburgerBox>
             </StyledHamburger>
-            {/* <StyledHamburgerBox
-              menuOpen={menuOpen}
-              onClick={toggleMenu}
-              ref={el => (menuButton = el)}
-            /> */}
             {clicked && <Menu menuOpen={menuOpen} toggleMenu={toggleMenu} location={location} />}
           </NavWrapper>
           {location.pathname === '/' && <Line ref={el => (lineRef.current = el)} />}
