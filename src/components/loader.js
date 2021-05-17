@@ -1,3 +1,4 @@
+/* eslint react-hooks/exhaustive-deps: 0 */
 import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import Div100vh from 'react-div-100vh';
@@ -35,9 +36,7 @@ const Loader = ({ setLoaded }) => {
     setTimeout(() => setAnimText('Thanks for'), 1400);
     setTimeout(() => setAnimText('Thanks for stopping'), 1500);
     setTimeout(() => setAnimText('Thanks for stopping by.'), 1600);
-  }, []);
 
-  useEffect(() => {
     tl.to(textRef, { yPercent: -120, ease: 'power3.inOut', duration: 0.8, delay: 2.5 }).to(
       sectionContainer,
       {
@@ -48,7 +47,7 @@ const Loader = ({ setLoaded }) => {
       },
       '-=0.4',
     );
-  }, [tl, sectionContainer, textRef, setLoaded]);
+  }, []);
 
   return (
     <Div100vh ref={el => (sectionContainer = el)} style={{ transformOrigin: 'top' }}>
