@@ -1,16 +1,18 @@
 import styled, { css } from 'styled-components';
 import { media, mixins } from '@styles';
 import { Link } from 'gatsby';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 export const SectionContainer = styled.div`
   position: relative;
   background-color: var(--dark);
   color: var(--light);
+  overflow: hidden;
 `;
 export const ContentWrapper = styled.div`
   display: flex;
-  padding: 5vh 0;
-  height: 100%;
+  padding: 10vh 0;
+  min-height: 100vh;
   justify-content: space-between;
   flex-direction: column;
 `;
@@ -40,7 +42,15 @@ export const LinkWrapper = styled.div`
   }
 `;
 export const TextWrapper = styled.div`
-  max-width: 70vw;
+  max-width: 50%;
+
+  ${media.thone`max-width: 80%;`};
+`;
+export const StyledMobileImage = styled(GatsbyImage)`
+  display: none;
+  margin-bottom: 8vw;
+
+  ${media.thone`display: block;`};
 `;
 export const Row = styled.div`
   display: flex;
@@ -49,7 +59,7 @@ export const Row = styled.div`
 
   ${media.thone`
     ${props => props.bottom && `flex-direction: column;`};
-    ${props => props.contact && `padding-bottom: 4vw;`};
+    ${props => props.contact && `padding: 16vw 0 4vw;`};
   `};
 `;
 export const ContactRows = styled.div`

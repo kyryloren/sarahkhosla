@@ -2,10 +2,7 @@
 import React, { useEffect, useRef, useMemo, useContext, useState } from 'react';
 import { RichText } from 'prismic-reactjs';
 import { Elements } from 'prismic-richtext';
-import { isMobile } from 'react-device-detect';
-import { useWindowSize } from '@hooks';
 import { gsap } from 'gsap';
-import Div100vh from 'react-div-100vh';
 import {
   SectionContainer,
   Row,
@@ -18,6 +15,7 @@ import {
   LinkWrapper,
   SmallLinkGatsby,
   TextWrapper,
+  StyledMobileImage,
 } from './style';
 import { Icon, CursorContext } from '@components';
 import { Container, Overflow } from '@styles';
@@ -67,13 +65,6 @@ const PhotoLink = ({ data }) => {
   );
 };
 
-const MobileWrapper = ({ children }) => {
-  const { height } = useWindowSize();
-
-  if (height < 618 && isMobile) return children;
-  return <Div100vh>{children}</Div100vh>;
-};
-
 const Information = ({ state, data }) => {
   let tl = gsap.timeline();
   let linesRef = useRef([]);
@@ -110,81 +101,83 @@ const Information = ({ state, data }) => {
   return (
     <SectionContainer>
       <Container>
-        <MobileWrapper>
-          <ContentWrapper>
-            <Row>
-              <TextWrapper>
-                <div style={{ opacity: 0 }} ref={el => (textRef = el)}>
-                  <RichText render={data.description.raw} htmlSerializer={htmlSerializer} />
-                </div>
-              </TextWrapper>
-              <div>
-                <StyledHamburgerBox
-                  to={state && state.prev ? state.prev : '/'}
-                  style={{ opacity: 0 }}
-                  ref={el => (buttonRef = el)}>
-                  <Icon name="cross" />
-                </StyledHamburgerBox>
+        <ContentWrapper>
+          <Row>
+            <TextWrapper>
+              <StyledMobileImage
+                image={data.headshot.localFile.childImageSharp.gatsbyImageData}
+                alt={data.headshot.alt && data.headshot.alt}
+              />
+              <div style={{ opacity: 0 }} ref={el => (textRef = el)}>
+                <RichText render={data.description.raw} htmlSerializer={htmlSerializer} />
               </div>
+            </TextWrapper>
+            <div>
+              <StyledHamburgerBox
+                to={state && state.prev ? state.prev : '/'}
+                style={{ opacity: 0 }}
+                ref={el => (buttonRef = el)}>
+                <Icon name="cross" />
+              </StyledHamburgerBox>
+            </div>
+          </Row>
+          <Row bottom>
+            <Row col contact>
+              {data.big_links[0].email && (
+                <ContactRows>
+                  <Overflow>
+                    <div style={{ opacity: 0 }} ref={el => (linesRef.current[5] = el)}>
+                      <BigText href={`mailto:${data.big_links[0].email}`}>
+                        {data.big_links[0].email}
+                      </BigText>
+                    </div>
+                  </Overflow>
+                </ContactRows>
+              )}
+              {data.big_links[0].phone && (
+                <ContactRows>
+                  <Overflow>
+                    <div style={{ opacity: 0 }} ref={el => (linesRef.current[6] = el)}>
+                      <BigText href={`tel:${data.big_links[0].phone.replace(/\s/g, '')}`}>
+                        {data.big_links[0].phone}
+                      </BigText>
+                    </div>
+                  </Overflow>
+                </ContactRows>
+              )}
             </Row>
-            <Row bottom>
-              <Row col contact>
-                {data.big_links[0].email && (
-                  <ContactRows>
-                    <Overflow>
-                      <div style={{ opacity: 0 }} ref={el => (linesRef.current[5] = el)}>
-                        <BigText href={`mailto:${data.big_links[0].email}`}>
-                          {data.big_links[0].email}
-                        </BigText>
-                      </div>
-                    </Overflow>
-                  </ContactRows>
-                )}
-                {data.big_links[0].phone && (
-                  <ContactRows>
-                    <Overflow>
-                      <div style={{ opacity: 0 }} ref={el => (linesRef.current[6] = el)}>
-                        <BigText href={`tel:${data.big_links[0].phone.replace(/\s/g, '')}`}>
-                          {data.big_links[0].phone}
-                        </BigText>
-                      </div>
-                    </Overflow>
-                  </ContactRows>
-                )}
-              </Row>
-              <Row col>
-                <Overflow>
-                  <LinkWrapper photo style={{ opacity: 0 }} ref={el => (linesRef.current[7] = el)}>
-                    <PhotoLink data={data} />
-                    <Icon name="arrow" />
-                  </LinkWrapper>
-                </Overflow>
-                <Overflow>
-                  <LinkWrapper style={{ opacity: 0 }} ref={el => (linesRef.current[8] = el)}>
-                    <SmallLinkGatsby to="/">Work</SmallLinkGatsby>
-                    <Icon name="arrow" />
-                  </LinkWrapper>
-                </Overflow>
-                {data.links &&
-                  data.links.map((data, index) => (
-                    <Overflow key={index}>
-                      <LinkWrapper
-                        style={{ opacity: 0 }}
-                        ref={el => (linesRef.current[8 + (index + 1)] = el)}>
-                        <SmallLink
-                          href={data.link.url && data.link.url}
-                          target={data.link.target}
-                          rel="noopener noreferrer">
-                          {data.name && data.name}
-                        </SmallLink>
-                        <Icon name="arrow" />
-                      </LinkWrapper>
-                    </Overflow>
-                  ))}
-              </Row>
+            <Row col>
+              <Overflow>
+                <LinkWrapper photo style={{ opacity: 0 }} ref={el => (linesRef.current[7] = el)}>
+                  <PhotoLink data={data} />
+                  <Icon name="arrow" />
+                </LinkWrapper>
+              </Overflow>
+              <Overflow>
+                <LinkWrapper style={{ opacity: 0 }} ref={el => (linesRef.current[8] = el)}>
+                  <SmallLinkGatsby to="/">Work</SmallLinkGatsby>
+                  <Icon name="arrow" />
+                </LinkWrapper>
+              </Overflow>
+              {data.links &&
+                data.links.map((data, index) => (
+                  <Overflow key={index}>
+                    <LinkWrapper
+                      style={{ opacity: 0 }}
+                      ref={el => (linesRef.current[8 + (index + 1)] = el)}>
+                      <SmallLink
+                        href={data.link.url && data.link.url}
+                        target={data.link.target}
+                        rel="noopener noreferrer">
+                        {data.name && data.name}
+                      </SmallLink>
+                      <Icon name="arrow" />
+                    </LinkWrapper>
+                  </Overflow>
+                ))}
             </Row>
-          </ContentWrapper>
-        </MobileWrapper>
+          </Row>
+        </ContentWrapper>
       </Container>
     </SectionContainer>
   );
