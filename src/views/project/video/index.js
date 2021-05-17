@@ -1,13 +1,18 @@
 import React from 'react';
+import { isMobile } from 'react-device-detect';
 import { Container } from '@styles';
-import { VideoPlayer } from './style';
+import { VideoPlayer, StyledGif } from './style';
 import { ImageSection } from '../style';
 
 const Video = ({ data }) => {
   return (
     <ImageSection>
       <Container>
-        <VideoPlayer autoPlay muted loop src={data.primary.video.url} />
+        {isMobile && data.primary.gif.url ? (
+          <StyledGif src={data.primary.gif.url} />
+        ) : (
+          <VideoPlayer autoPlay muted loop src={data.primary.video.url} />
+        )}
       </Container>
     </ImageSection>
   );

@@ -86,6 +86,9 @@ export const query = graphql`
                   video {
                     url
                   }
+                  gif {
+                    url
+                  }
                 }
               }
             }

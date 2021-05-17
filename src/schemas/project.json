@@ -125,6 +125,14 @@
                   "label": "Video",
                   "placeholder": "Video"
                 }
+              },
+              "gif": {
+                "type": "Link",
+                "config": {
+                  "select": "media",
+                  "label": "Gif",
+                  "placeholder": "GIF"
+                }
               }
             },
             "repeat": {}
