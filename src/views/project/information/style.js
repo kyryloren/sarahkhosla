@@ -92,8 +92,8 @@ export const ButtonWrapper = styled.a`
   ${media.thone`padding-top: 8vw;`};
 `;
 export const StyledHamburgerBox = styled.div`
-  display: flex;
   position: relative;
+  display: flex;
   padding: 1vw;
   border-radius: 50%;
   align-items: center;

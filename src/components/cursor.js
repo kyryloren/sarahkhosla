@@ -1,12 +1,8 @@
 /* eslint react-hooks/exhaustive-deps: 0 */
 import React, { useState, useEffect } from 'react';
+import { isMobile } from 'react-device-detect';
 import { CursorContext } from './CursorContext';
 import styled from 'styled-components';
-
-const isMobile = () => {
-  const ua = navigator.userAgent;
-  return /Android|Mobi/i.test(ua);
-};
 
 const StyledImage = styled.img`
   position: absolute;
@@ -17,12 +13,12 @@ const StyledImage = styled.img`
   z-index: 9999;
 `;
 const StyledCursor = styled.div`
-  width: 10px;
-  height: 10px;
+  width: 100px;
+  height: 100px;
   background-color: var(--light);
   border-radius: 50%;
   position: fixed;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(0.1);
   pointer-events: none;
   transition: all 150ms ease;
   transition-property: background-color, opacity, transform, mix-blend-mode;
@@ -34,7 +30,7 @@ const StyledCursor = styled.div`
   ${props =>
     (props.linkHovered || props.clicked) &&
     `
-    transform: translate(-50%, -50%) scale(10);
+    transform: translate(-50%, -50%) scale(1);
     background-color: var(--light);
   `};
 `;
@@ -104,7 +100,7 @@ const Cursor = ({ location, loaded }) => {
     });
   };
 
-  if (typeof navigator !== 'undefined' && isMobile()) return null;
+  if (typeof navigator !== 'undefined' && isMobile) return null;
 
   return (
     <>
