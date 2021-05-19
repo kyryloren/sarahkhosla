@@ -1,4 +1,5 @@
 import { css } from 'styled-components';
+import media from './media';
 
 const mixins = {
   flexCenter: css`
@@ -36,6 +37,13 @@ const mixins = {
     list-style: none;
     padding: 0;
     margin: 0;
+  `,
+  normalText: css`
+    font-size: 1.4vw;
+    line-height: 140%;
+
+    ${media.tablet`font-size: 3vw;`};
+    ${media.thone`font-size: 4vw;`};
   `,
 };
 

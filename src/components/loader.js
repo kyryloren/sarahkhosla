@@ -13,6 +13,7 @@ const LoadingWrapper = styled.div`
   height: 100%;
   z-index: 9998;
   padding: 5.1vw 0;
+  overflow: hidden;
 `;
 const Text = styled.div`
   font-size: 2vw;

@@ -68,13 +68,8 @@ export const ContactRows = styled.div`
   }
 `;
 export const ParaLine = styled.p`
-  font-size: 1.4vw;
+  ${mixins.normalText};
   margin-top: 0;
-  line-height: 140%;
-
-  ${media.tablet`font-size: 3vw;`};
-  ${media.thone`font-size: 4vw;`};
-  ${media.phone`font-size: 5vw;`};
 `;
 export const StyledHamburgerBox = styled(Link)`
   display: flex;
@@ -111,14 +106,10 @@ export const BigText = styled.a`
   ${mixins.animLine}
 `;
 const LinkStyles = css`
-  font-size: 1.4vw;
+  ${mixins.normalText};
   color: var(--light);
   text-decoration: none;
   position: relative;
-
-  ${media.tablet`font-size: 3vw;`};
-  ${media.thone`font-size: 5vw;`};
-  ${media.phone`font-size: 7vw;`};
 `;
 export const SmallLink = styled.a`
   ${LinkStyles}

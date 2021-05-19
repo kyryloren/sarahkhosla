@@ -51,7 +51,7 @@ export const NavListItem = styled.li`
   }
 `;
 export const StyledLink = styled(Link)`
-  font-size: 1.4vw;
+  ${mixins.normalText};
   text-decoration: none;
   position: relative;
   color: inherit;
@@ -62,7 +62,7 @@ export const StyledLink = styled(Link)`
     font-size: 2vw;
   `};
 
-  ${media.tablet`font-size: ${props => (props.logo ? '26px' : '4vw')};`};
+  ${media.tablet`font-size: ${props => (props.logo ? '7vw' : '4vw')};`};
 `;
 export const StyledNavLink = styled(StyledLink)`
   ${props =>

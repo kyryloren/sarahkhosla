@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'gatsby';
-import { media } from '@styles';
+import { media, mixins } from '@styles';
 
 export const ProjectsSection = styled.div`
   position: relative;
@@ -30,11 +30,8 @@ export const ProjectWrapper = styled(Link)`
   }
 `;
 export const ProjectTitle = styled.p`
-  font-size: 1.4vw;
+  ${mixins.normalText};
   color: var(--dark);
-  margin: 0;
-  padding-top: 1vw;
+  margin-top: 1vw;
   ${props => props.ml && `margin-left: 15.1vw;`};
-
-  ${media.phablet`font-size: 4vw;`};
 `;

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { media } from '@styles';
+import { media, mixins } from '@styles';
 
 export const InfoSection = styled.section`
   width: 100%;
@@ -33,11 +33,9 @@ export const Title = styled.h1`
   `};
 `;
 export const NormalText = styled.p`
-  font-size: 1.4vw;
+  ${mixins.normalText};
   font-weight: 300;
   margin-top: 0;
-  line-height: 140%;
-  overflow: hidden;
 
   ${props =>
     props.label &&

@@ -18,14 +18,6 @@ export const shouldUpdateScroll = ({ routerProps: { location }, getSavedScrollPo
   return false;
 };
 
-
-export const onClientEntry = () => {
-  // IntersectionObserver polyfill for gatsby-background-image (Safari, IE)
-  if (!(`IntersectionObserver` in window)) {
-    return import(`intersection-observer`);
-  }
-};
-
 export const wrapPageElement = ({ element, props }) => {
   return <Layout {...props}>{element}</Layout>;
 };

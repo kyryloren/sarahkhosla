@@ -51,8 +51,8 @@ module.exports = {
         icon: `src/images/logo.svg`,
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    // We use this plugin to analyze our final javascript package bundle size
+    // https://www.gatsbyjs.com/plugins/gatsby-plugin-webpack-bundle-analyser-v2
+    'gatsby-plugin-webpack-bundle-analyser-v2',
   ],
 };

@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from 'react';
 import { CursorContext } from './CursorContext';
 import styled from 'styled-components';
-import classNames from 'classnames';
 
 const isMobile = () => {
   const ua = navigator.userAgent;
@@ -16,6 +15,28 @@ const StyledImage = styled.img`
   transform: translate(-50%, -50%);
   pointer-events: none;
   z-index: 9999;
+`;
+const StyledCursor = styled.div`
+  width: 10px;
+  height: 10px;
+  background-color: var(--light);
+  border-radius: 50%;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  transition: all 150ms ease;
+  transition-property: background-color, opacity, transform, mix-blend-mode;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  backface-visibility: hidden;
+
+  ${props => props.hide && `opacity: 0;`};
+  ${props =>
+    (props.linkHovered || props.clicked) &&
+    `
+    transform: translate(-50%, -50%) scale(10);
+    background-color: var(--light);
+  `};
 `;
 
 const Cursor = ({ location, loaded }) => {
@@ -83,17 +104,16 @@ const Cursor = ({ location, loaded }) => {
     });
   };
 
-  const cursorClasses = classNames('cursor', {
-    'cursor--clicked': clicked,
-    'cursor--hidden': hidden,
-    'cursor--link-hovered': linkHovered,
-  });
-
   if (typeof navigator !== 'undefined' && isMobile()) return null;
 
   return (
     <>
-      <div className={cursorClasses} style={{ top: `${position.y}px`, left: `${position.x}px` }} />
+      <StyledCursor
+        clicked={clicked}
+        hide={hidden}
+        linkHovered={linkHovered}
+        style={{ top: `${position.y}px`, left: `${position.x}px` }}
+      />
       <StyledImage
         src={image && image.url}
         alt={image && image.alt}
