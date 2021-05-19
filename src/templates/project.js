@@ -78,6 +78,18 @@ export const query = graphql`
                     }
                     alt
                   }
+                  left_video {
+                    url
+                  }
+                  left_gif {
+                    url
+                  }
+                  right_video {
+                    url
+                  }
+                  right_gif {
+                    url
+                  }
                 }
               }
               __typename

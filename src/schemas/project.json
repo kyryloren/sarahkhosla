@@ -14,6 +14,15 @@
         "placeholder": "Page title"
       }
     },
+    "alignment": {
+      "type": "Boolean",
+      "config": {
+        "placeholder_false": "Align left",
+        "placeholder_true": "Align right",
+        "default_value": false,
+        "label": "Title Alignment"
+      }
+    },
     "thumbnail": {
       "type": "Image",
       "config": {
@@ -38,7 +47,8 @@
           "information": [],
           "full_image": [],
           "half_image": [],
-          "video": []
+          "video": [],
+          "half_video": []
         },
         "choices": {
           "information": {
@@ -106,6 +116,38 @@
                   "constraint": {},
                   "thumbnails": [],
                   "label": "Right Image"
+                }
+              },
+              "left_video": {
+                "type": "Link",
+                "config": {
+                  "select": "media",
+                  "label": "Left video",
+                  "placeholder": "Left video (optional)"
+                }
+              },
+              "left_gif": {
+                "type": "Link",
+                "config": {
+                  "select": "media",
+                  "label": "Left GIF",
+                  "placeholder": "Left GIF (optional)"
+                }
+              },
+              "right_video": {
+                "type": "Link",
+                "config": {
+                  "select": "media",
+                  "label": "Right video",
+                  "placeholder": "Right video (optional)"
+                }
+              },
+              "right_gif": {
+                "type": "Link",
+                "config": {
+                  "select": "media",
+                  "label": "Right GIF",
+                  "placeholder": "Right GIF (optional)"
                 }
               }
             },

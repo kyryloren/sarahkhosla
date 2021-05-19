@@ -8,6 +8,19 @@ export const Row = styled.div`
 
   ${media.thone`flex-direction: column;`};
 `;
+export const VideoWrapper = styled.div`
+  width: 50%;
+  ${media.tablet`width: 100%;`};
+
+  :last-child {
+    margin-left: 2vw;
+
+    ${media.thone`
+      margin-left: 0;
+      margin-top: 2vw;
+    `};
+  }
+`;
 export const StyledImage = styled(GatsbyImage)`
   width: 50%;
   ${media.tablet`width: 100%;`};
