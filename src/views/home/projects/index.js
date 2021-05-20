@@ -25,7 +25,7 @@ const Projects = ({ data }) => {
             trigger: el,
             animation: tl,
             scroller: '#___container',
-            start: 'top center-=100',
+            start: 'top center+=200px',
           });
           ScrollTrigger.addEventListener('refresh', () => window.scroll.update());
           ScrollTrigger.refresh();

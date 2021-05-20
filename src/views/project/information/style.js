@@ -63,10 +63,20 @@ export const TextWrapper = styled.div`
     props.truncated &&
     `
     overflow: hidden;
-    max-height: 12.9vw;
+    height: 12.5vw;
+
+    :after {
+      content: '';
+      position: absolute;
+      bottom: 4vw;
+      right: 0;
+      width: 100%;
+      height: 5vw;
+      background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+    }
   `}
 
-  ${media.thone`${props => props.truncated && `max-height: 44.1vw;`}`};
+  ${media.thone`${props => props.truncated && `height: 44.1vw;`}`};
 `;
 export const UnorderedList = styled.ul`
   list-style: none;
