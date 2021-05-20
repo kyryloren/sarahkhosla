@@ -37,16 +37,18 @@ const Projects = ({ data }) => {
       <Container>
         {data.map((node, index) => {
           const data = node.data;
-          
+
           return (
-            <ProjectWrapper to={node.uid} key={index} ref={el => (imageRef.current[index] = el)}>
+            <ProjectWrapper
+              to={node.uid}
+              key={index}
+              ref={el => (imageRef.current[index] = el)}
+              alignment={data.alignment}>
               <GatsbyImage
                 image={data.thumbnail.localFile.childImageSharp.gatsbyImageData}
                 alt={data.thumbnail.alt && data.thumbnail.alt}
               />
-              {data.title && (
-                <ProjectTitle ml={node.uid === 'giftnow'}>{data.title}</ProjectTitle>
-              )}
+              {data.title && <ProjectTitle ml={node.uid === 'giftnow'}>{data.title}</ProjectTitle>}
             </ProjectWrapper>
           );
         })}

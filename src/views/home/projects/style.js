@@ -12,12 +12,9 @@ export const ProjectsSection = styled.div`
 export const ProjectWrapper = styled(Link)`
   display: flex;
   flex-direction: column;
+  text-align: ${props => (props.alignment ? 'right' : 'left')};
   transform: translateY(15%);
   opacity: 0;
-
-  :nth-child(odd) {
-    text-align: right;
-  }
 
   :not(:first-child) {
     margin-top: 15vw;

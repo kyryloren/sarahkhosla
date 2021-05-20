@@ -14,7 +14,13 @@ const Layout = ({ children, location }) => {
   // This is a hacky way to reset the overflow on page change
   useEffect(() => {
     document.body.style.overflow = 'unset';
-  }, [location]);
+
+    if (infoPage) {
+      document.body.style.backgroundColor = 'var(--dark)';
+    } else {
+      document.body.style.backgroundColor = 'var(--light)';
+    }
+  }, [location, infoPage]);
 
   return (
     <StaticQuery
