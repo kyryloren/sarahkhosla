@@ -24,9 +24,11 @@ const LoadImageVideo = ({ image, video, gif }) => {
         <VideoPlayer autoPlay muted loop src={video.url} />
       </VideoWrapper>
     );
-  } else if (image.localFile) {
+  } else if (image.localFile && image.localFile.childImageSharp) {
     return <StyledImage image={image.localFile.childImageSharp.gatsbyImageData} alt={image.alt} />;
   }
+
+  return null;
 };
 
 const Half = ({ data }) => {

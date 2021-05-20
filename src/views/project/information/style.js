@@ -62,13 +62,11 @@ export const TextWrapper = styled.div`
   ${props =>
     props.truncated &&
     `
-    display: -webkit-box;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
     overflow: hidden;
+    max-height: 13vw;
   `}
 
-  ${media.thone`${props => props.truncated && `-webkit-line-clamp: 7;`}`};
+  ${media.thone`${props => props.truncated && `max-height: 42vw;`}`};
 `;
 export const UnorderedList = styled.ul`
   list-style: none;
