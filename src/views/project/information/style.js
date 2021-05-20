@@ -63,10 +63,10 @@ export const TextWrapper = styled.div`
     props.truncated &&
     `
     overflow: hidden;
-    max-height: 13vw;
+    max-height: 12.9vw;
   `}
 
-  ${media.thone`${props => props.truncated && `max-height: 42vw;`}`};
+  ${media.thone`${props => props.truncated && `max-height: 44.1vw;`}`};
 `;
 export const UnorderedList = styled.ul`
   list-style: none;
