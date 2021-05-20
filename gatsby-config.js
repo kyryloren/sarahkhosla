@@ -51,12 +51,12 @@ module.exports = {
         icon: `src/images/logo.svg`,
       },
     },
-    // {
-    //   resolve: 'gatsby-plugin-google-gtag',
-    //   options: {
-    //     trackingIds: ['G-NC54SL9GDK'],
-    //   },
-    // },
+    {
+      resolve: 'gatsby-plugin-google-gtag',
+      options: {
+        trackingIds: ['G-NC54SL9GDK'],
+      },
+    },
     // We use this plugin to analyze our final javascript package bundle size
     // https://www.gatsbyjs.com/plugins/gatsby-plugin-webpack-bundle-analyser-v2
     'gatsby-plugin-webpack-bundle-analyser-v2',
