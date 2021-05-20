@@ -76,7 +76,16 @@ export const TextWrapper = styled.div`
     }
   `}
 
-  ${media.thone`${props => props.truncated && `height: 44.1vw;`}`};
+  ${media.thone`${props =>
+    props.truncated &&
+    `
+    height: 40vw;
+
+    :after {
+      bottom: 25vw;
+      height: 20vw;
+    }
+  `}`};
 `;
 export const UnorderedList = styled.ul`
   list-style: none;
