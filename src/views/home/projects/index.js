@@ -12,7 +12,7 @@ const Projects = ({ data }) => {
 
   useEffect(() => {
     setTimeout(() => {
-      imageRef.current.forEach(el => {
+      imageRef.current.forEach((el, index) => {
         let tl = gsap.timeline().to(el, {
           y: 0,
           opacity: 1,
@@ -20,14 +20,16 @@ const Projects = ({ data }) => {
           duration: 1,
         });
 
-        ScrollTrigger.create({
-          trigger: el,
-          animation: tl,
-          scroller: '#___container',
-          start: 'top center+=200',
-        });
-        ScrollTrigger.addEventListener('refresh', () => window.scroll.update());
-        ScrollTrigger.refresh();
+        if (index !== 0) {
+          ScrollTrigger.create({
+            trigger: el,
+            animation: tl,
+            scroller: '#___container',
+            start: 'top center-=100',
+          });
+          ScrollTrigger.addEventListener('refresh', () => window.scroll.update());
+          ScrollTrigger.refresh();
+        }
       });
     }, 500);
   }, []);
@@ -45,6 +47,7 @@ const Projects = ({ data }) => {
               ref={el => (imageRef.current[index] = el)}
               alignment={data.alignment}>
               <GatsbyImage
+                loading={index === 0 ? 'eager' : 'lazy'}
                 image={data.thumbnail.localFile.childImageSharp.gatsbyImageData}
                 alt={data.thumbnail.alt && data.thumbnail.alt}
               />
