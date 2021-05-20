@@ -47,7 +47,6 @@ const Projects = ({ data }) => {
               ref={el => (imageRef.current[index] = el)}
               alignment={data.alignment}>
               <GatsbyImage
-                loading={index === 0 ? 'eager' : 'lazy'}
                 image={data.thumbnail.localFile.childImageSharp.gatsbyImageData}
                 alt={data.thumbnail.alt && data.thumbnail.alt}
               />
