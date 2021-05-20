@@ -1,5 +1,6 @@
 /* eslint react-hooks/exhaustive-deps: 0 */
 import React, { useEffect, useRef, useMemo, useContext, useState } from 'react';
+import { isMobile } from 'react-device-detect';
 import { RichText } from 'prismic-reactjs';
 import { Elements } from 'prismic-richtext';
 import { gsap } from 'gsap';
@@ -54,6 +55,8 @@ const PhotoLink = ({ data }) => {
       });
   }, [hovering]);
 
+  if (isMobile) return null;
+
   return (
     <SmallLink
       id="cursor_hide"
@@ -104,10 +107,12 @@ const Information = ({ state, data }) => {
         <ContentWrapper>
           <Row>
             <TextWrapper>
-              <StyledMobileImage
-                image={data.headshot.localFile.childImageSharp.gatsbyImageData}
-                alt={data.headshot.alt && data.headshot.alt}
-              />
+              {isMobile && (
+                <StyledMobileImage
+                  image={data.headshot.localFile.childImageSharp.gatsbyImageData}
+                  alt={data.headshot.alt && data.headshot.alt}
+                />
+              )}
               <div style={{ opacity: 0 }} ref={el => (textRef = el)}>
                 <RichText render={data.description.raw} htmlSerializer={htmlSerializer} />
               </div>

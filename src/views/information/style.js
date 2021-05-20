@@ -11,7 +11,7 @@ export const SectionContainer = styled.div`
 `;
 export const ContentWrapper = styled.div`
   display: flex;
-  padding: 10vh 0;
+  padding: 10vmin 0;
   min-height: 100vh;
   justify-content: space-between;
   flex-direction: column;
@@ -21,10 +21,7 @@ export const LinkWrapper = styled.div`
   align-items: center;
   justify-content: flex-end;
 
-  ${media.thone`
-    flex-direction: row-reverse;
-    ${props => props.photo && `display: none;`};
-  `};
+  ${media.thone`flex-direction: row-reverse;`};
   ${media.tablet`margin-top: 2vw;`};
 
   svg {
@@ -47,10 +44,7 @@ export const TextWrapper = styled.div`
   ${media.thone`max-width: 80%;`};
 `;
 export const StyledMobileImage = styled(GatsbyImage)`
-  display: none;
   margin-bottom: 8vw;
-
-  ${media.thone`display: block;`};
 `;
 export const Row = styled.div`
   display: flex;
