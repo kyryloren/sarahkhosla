@@ -16,6 +16,7 @@ import {
   UnorderedList,
   ButtonWrapper,
   StyledHamburgerBox,
+  StyledLink,
 } from './style';
 
 const propsWithUniqueKey = function (props, key) {
@@ -30,6 +31,11 @@ var htmlSerializer = function (type, element, content, children, key) {
       return React.createElement(NormalText, propsWithUniqueKey(props, key), children);
     case Elements.list:
       return React.createElement(UnorderedList, propsWithUniqueKey(props, key), children);
+    case Elements.hyperlink:
+      const targetAttr = element.data.target ? { target: element.data.target } : {};
+      const relAttr = element.data.target ? { rel: 'noopener noreferrer' } : {};
+      props = Object.assign({ href: element.data.url }, targetAttr, relAttr);
+      return React.createElement(StyledLink, propsWithUniqueKey(props, key), children);
     default:
       return null;
   }

@@ -117,3 +117,11 @@ export const StyledHamburgerBox = styled.div`
     `};
   }
 `;
+export const StyledLink = styled.a`
+  text-decoration: underline;
+  color: inherit;
+
+  :hover {
+    text-decoration: none;
+  }
+`;
