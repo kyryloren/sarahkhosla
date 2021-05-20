@@ -21,7 +21,7 @@ export const query = graphql`
           thumbnail {
             localFile {
               childImageSharp {
-                gatsbyImageData(layout: FULL_WIDTH, quality: 85, blurredOptions: { width: 100 })
+                gatsbyImageData(layout: FULL_WIDTH, quality: 85)
               }
             }
             alt
