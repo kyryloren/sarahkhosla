@@ -72,8 +72,8 @@ const Menu = ({ menuOpen, location }) => {
                       state={{ prev: location.pathname }}
                       onClick={() => setClickedLink(true)}>
                       Information
+                      <Icon name="arrow" />
                     </NavLink>
-                    <Icon name="arrow" />
                   </NavListItem>
                 </StyledOverflow>
                 <StyledOverflow>
@@ -83,8 +83,8 @@ const Menu = ({ menuOpen, location }) => {
                       state={{ prev: location.pathname }}
                       onClick={() => setClickedLink(true)}>
                       Work
+                      <Icon name="arrow" />
                     </NavLink>
-                    <Icon name="arrow" />
                   </NavListItem>
                 </StyledOverflow>
               </NavList>

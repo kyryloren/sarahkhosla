@@ -58,13 +58,16 @@ const PhotoLink = ({ data }) => {
   if (isMobile) return null;
 
   return (
-    <SmallLink
-      id="cursor_hide"
-      onMouseOver={() => setHovering(true)}
-      onMouseOut={() => setHovering(false)}
-      style={{ cursor: 'default' }}>
-      Photo of me
-    </SmallLink>
+    <>
+      <SmallLink
+        id="cursor_hide"
+        onMouseOver={() => setHovering(true)}
+        onMouseOut={() => setHovering(false)}
+        style={{ cursor: 'default' }}>
+        Photo of me
+      </SmallLink>
+      <Icon name="arrow" />
+    </>
   );
 };
 
@@ -155,7 +158,6 @@ const Information = ({ state, data }) => {
               <Overflow>
                 <LinkWrapper photo style={{ opacity: 0 }} ref={el => (linesRef.current[7] = el)}>
                   <PhotoLink data={data} />
-                  <Icon name="arrow" />
                 </LinkWrapper>
               </Overflow>
               <Overflow>

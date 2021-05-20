@@ -46,8 +46,6 @@ export const StyledOverflow = styled(Overflow)`
 `;
 export const NavListItem = styled.li`
   position: relative;
-  display: flex;
-  justify-content: space-between;
 
   svg {
     color: var(--light);
@@ -56,10 +54,11 @@ export const NavListItem = styled.li`
   }
 `;
 export const NavLink = styled(Link)`
-  display: inline-block;
+  display: flex;
   text-decoration: none;
   color: var(--light);
   font-size: 8vw;
+  justify-content: space-between;
 `;
 export const FooterWrapper = styled.div`
   position: fixed;

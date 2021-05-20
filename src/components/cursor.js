@@ -54,19 +54,19 @@ const Cursor = ({ location, loaded }) => {
   }, [location.pathname, loaded]);
 
   const addEventListeners = () => {
-    document.addEventListener('mousemove', onMouseMove);
-    document.addEventListener('mouseenter', onMouseEnter);
-    document.addEventListener('mouseleave', onMouseLeave);
-    document.addEventListener('mousedown', onMouseDown);
-    document.addEventListener('mouseup', onMouseUp);
+    document.body.addEventListener('mousemove', onMouseMove);
+    document.body.addEventListener('mouseenter', onMouseEnter);
+    document.body.addEventListener('mouseleave', onMouseLeave);
+    document.body.addEventListener('mousedown', onMouseDown);
+    document.body.addEventListener('mouseup', onMouseUp);
   };
 
   const removeEventListeners = () => {
-    document.removeEventListener('mousemove', onMouseMove);
-    document.removeEventListener('mouseenter', onMouseEnter);
-    document.removeEventListener('mouseleave', onMouseLeave);
-    document.removeEventListener('mousedown', onMouseDown);
-    document.removeEventListener('mouseup', onMouseUp);
+    document.body.removeEventListener('mousemove', onMouseMove);
+    document.body.removeEventListener('mouseenter', onMouseEnter);
+    document.body.removeEventListener('mouseleave', onMouseLeave);
+    document.body.removeEventListener('mousedown', onMouseDown);
+    document.body.removeEventListener('mouseup', onMouseUp);
   };
 
   const onMouseMove = e => {
