@@ -20,9 +20,6 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     width: 100%;
   }
-  #gatsby-focus-wrapper, #___gatsby {
-    overflow-x: hidden;
-  }
   /* * {
     border: 1px solid #f00 !important;
   } */
