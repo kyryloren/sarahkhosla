@@ -1,39 +1,8 @@
 /* eslint react-hooks/exhaustive-deps: 0 */
 import React, { useState, useEffect } from 'react';
 import { isMobile } from 'react-device-detect';
+import { StyledCursor, StyledImage } from '@styles';
 import { CursorContext } from './CursorContext';
-import styled from 'styled-components';
-
-const StyledImage = styled.img`
-  position: absolute;
-  width: 20vw;
-  transition: opacity 0.3s ease;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  z-index: 9999;
-`;
-const StyledCursor = styled.div`
-  width: 100px;
-  height: 100px;
-  background-color: var(--light);
-  border-radius: 50%;
-  position: fixed;
-  transform: translate(-50%, -50%) scale(0.1);
-  pointer-events: none;
-  transition: all 150ms ease;
-  transition-property: background-color, opacity, transform, mix-blend-mode;
-  z-index: 9999;
-  mix-blend-mode: difference;
-  backface-visibility: hidden;
-
-  ${props => props.hide && `opacity: 0;`};
-  ${props =>
-    (props.linkHovered || props.clicked) &&
-    `
-    transform: translate(-50%, -50%) scale(1);
-    background-color: var(--light);
-  `};
-`;
 
 const Cursor = ({ location, loaded }) => {
   const { image } = React.useContext(CursorContext);
@@ -111,12 +80,12 @@ const Cursor = ({ location, loaded }) => {
         style={{ top: `${position.y}px`, left: `${position.x}px` }}
       />
       <StyledImage
-        src={image && image.url}
-        alt={image && image.alt}
+        src={image.url}
+        alt={image.alt}
         style={{
           top: `${position.y}px`,
           left: `${position.x}px`,
-          opacity: image && image.hovering ? 1 : 0,
+          opacity: image.hovering ? 1 : 0,
         }}
       />
     </>

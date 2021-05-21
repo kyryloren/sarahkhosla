@@ -25,13 +25,8 @@ export const query = graphql`
         node {
           data {
             headshot {
-              url
+              url(imgixParams: { q: 100, width: 300 })
               alt
-              localFile {
-                childImageSharp {
-                  gatsbyImageData(layout: FULL_WIDTH, quality: 85)
-                }
-              }
             }
             description {
               raw

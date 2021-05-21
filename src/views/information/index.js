@@ -1,5 +1,5 @@
 /* eslint react-hooks/exhaustive-deps: 0 */
-import React, { useEffect, useRef, useMemo, useContext, useState } from 'react';
+import React, { useEffect, useRef, useContext, useState } from 'react';
 import { isMobile } from 'react-device-detect';
 import { RichText } from 'prismic-reactjs';
 import { Elements } from 'prismic-richtext';
@@ -40,18 +40,18 @@ const PhotoLink = ({ data }) => {
   const { setImage } = useContext(CursorContext);
   const [hovering, setHovering] = useState(false);
 
-  useMemo(() => {
+  useEffect(() => {
     if (hovering)
       setImage({
         hovering: true,
         url: data.headshot.url,
-        alt: data.headshot.alt && data.headshot.alt,
+        alt: data.headshot.alt,
       });
     else
       setImage({
         hovering: false,
         url: data.headshot.url,
-        alt: data.headshot.alt && data.headshot.alt,
+        alt: data.headshot.alt,
       });
   }, [hovering]);
 
@@ -61,8 +61,8 @@ const PhotoLink = ({ data }) => {
     <>
       <SmallLink
         id="cursor_hide"
-        onMouseOver={() => setHovering(true)}
-        onMouseOut={() => setHovering(false)}
+        onMouseEnter={() => setHovering(true)}
+        onMouseLeave={() => setHovering(false)}
         style={{ cursor: 'default' }}>
         Photo of me
       </SmallLink>
