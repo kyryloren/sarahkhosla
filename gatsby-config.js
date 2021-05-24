@@ -6,7 +6,7 @@ module.exports = {
     description: `Description`,
     siteUrl: 'https://sarahkhosla.com',
     image: '/og.png',
-    twitterUsername: '@sarahkhosla',
+    twitterUsername: '@khosla_sarah',
   },
   plugins: [
     `gatsby-transformer-sharp`,

@@ -79,7 +79,7 @@ const Menu = ({ menuOpen, location }) => {
                 <StyledOverflow>
                   <NavListItem ref={el => (linksRef.current[1] = el)}>
                     <NavLink
-                      to="/work"
+                      to="/"
                       state={{ prev: location.pathname }}
                       onClick={() => setClickedLink(true)}>
                       Work
