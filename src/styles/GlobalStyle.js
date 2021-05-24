@@ -60,6 +60,7 @@ const GlobalStyle = createGlobalStyle`
   }
   a {
     text-decoration: none;
+    cursor: none;
   }
   ol, ul {
     list-style: none;
