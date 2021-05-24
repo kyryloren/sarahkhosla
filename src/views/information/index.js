@@ -62,8 +62,7 @@ const PhotoLink = ({ data }) => {
       <SmallLink
         id="cursor_hide"
         onMouseEnter={() => setHovering(true)}
-        onMouseLeave={() => setHovering(false)}
-        style={{ cursor: 'default' }}>
+        onMouseLeave={() => setHovering(false)}>
         Photo of me
       </SmallLink>
       <Icon name="arrow" />

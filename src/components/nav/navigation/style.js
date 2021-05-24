@@ -117,7 +117,6 @@ export const Line = styled.div`
 export const StyledHamburger = styled.div`
   position: relative;
   overflow: visible;
-  cursor: pointer;
   margin-top: -4vw;
   transition-timing-function: linear;
   transition-duration: 0.15s;

@@ -19,6 +19,7 @@ const GlobalStyle = createGlobalStyle`
   html {
     box-sizing: border-box;
     width: 100%;
+    cursor: none;
   }
   /* * {
     border: 1px solid #f00 !important;
@@ -77,7 +78,6 @@ const GlobalStyle = createGlobalStyle`
     text-transform: none;
     font: inherit;
     line-height: normal;
-    cursor: pointer;
     user-select: none;
     :focus {
       outline: none;

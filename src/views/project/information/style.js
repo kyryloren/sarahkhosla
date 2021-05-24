@@ -104,7 +104,6 @@ export const ButtonWrapper = styled.a`
   align-items: center;
   height: auto;
   padding-top: 3vw;
-  cursor: pointer;
 
   ${media.thone`padding-top: 8vw;`};
 `;
