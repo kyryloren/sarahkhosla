@@ -32,9 +32,11 @@ var htmlSerializer = function (type, element, content, children, key) {
     case Elements.list:
       return React.createElement(UnorderedList, propsWithUniqueKey(props, key), children);
     case Elements.hyperlink:
-      const targetAttr = element.data.target ? { target: element.data.target } : {};
-      const relAttr = element.data.target ? { rel: 'noopener noreferrer' } : {};
-      props = Object.assign({ href: element.data.url }, targetAttr, relAttr);
+      props = Object.assign(
+        { href: element.data.url },
+        { target: '_blank' },
+        { rel: 'noopener noreferrer' },
+      );
       return React.createElement(StyledLink, propsWithUniqueKey(props, key), children);
     default:
       return null;
