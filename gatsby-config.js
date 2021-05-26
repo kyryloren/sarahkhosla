@@ -3,9 +3,9 @@ require('dotenv').config();
 module.exports = {
   siteMetadata: {
     title: `Sarah Khosla`,
-    description: `Description`,
+    description: `Sarah Khosla is a multi-disciplined graphic designer specializing in branding. She focuses on developing clear and conceptual identities across digital and print solutions.`,
     siteUrl: 'https://sarahkhosla.com',
-    image: '/og.png',
+    image: '/og.jpg',
     twitterUsername: '@khosla_sarah',
   },
   plugins: [
